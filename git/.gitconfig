@@ -19,3 +19,5 @@
   ps = push
   pl = pull
   s = status -sb
+[push]
+	default = simple
