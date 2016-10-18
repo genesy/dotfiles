@@ -14,3 +14,8 @@
 	unstage = reset HEAD --
 	cached = diff --cached
 	d = difftool
+  c = commit -m
+  a = add
+  ps = push
+  pl = pull
+  s = status -sb
