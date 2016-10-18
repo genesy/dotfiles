@@ -1,8 +1,10 @@
 dir=`dirname $0`
-ln -s $HOME/dotfiles/vim/vimrc ~/.vimrc
-ln -s $HOME/dotfiles/vim/vimrc ~/.nvimrc
-ln -s $HOME/dotfiles/vim/vimrc ~/.config/nvim/init.vim
-ln -s $HOME/dotfiles/shell/zshrc ~/.zshrc
-ln -s $HOME/dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -s $HOME/dotfiles/git/gitignore ~/.gitignore
+dotfiles="$HOME/dotfiles"
+
+ln -fs $dotfiles/vim/.vimrc ~/.vimrc
+ln -fs $dotfiles/vim/.vimrc ~/.nvimrc
+ln -fs $dotfiles/vim/.vimrc ~/.config/nvim/init.vim
+ln -fs $dotfiles/zsh/.zshrc ~/.zshrc
+ln -fs $dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -fs $dotfiles/git/.gitignore ~/.gitignore
 

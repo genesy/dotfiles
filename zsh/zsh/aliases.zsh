@@ -4,6 +4,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # Filesystem aliases
+alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....="cd ../../.."
@@ -23,6 +24,8 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+alias mkdir="mkdir -p"
+alias rmrf="rm -rf"
 
 # Empty the Trash on all mounted volumes and the main HDD
 # alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
