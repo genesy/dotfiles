@@ -4,15 +4,20 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/gene/.oh-my-zsh
 
+
 # Directories to be prepended to $PATH
+prefix=${HOME}/.npm-packages
+NPM_PACKAGES="$HOME/.npm-packages"
 declare -a dirs_to_prepend
 dirs_to_prepend=(
   "$HOME/dotfiles/bin"
   "$HOME/Library/Android/sdk/tools"
   "$HOME/Library/Android/sdk/platform-tools"
+  "$NPM_PACKAGES/bin"
 )
 
-# PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 for dir in ${(k)dirs_to_prepend[@]}
 do
@@ -22,9 +27,11 @@ do
   fi
 done
 
-unset dirs_to_prepent
+
+unset dirs_to_prepend
 
 export PATH
+
 
 
 if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
@@ -34,7 +41,10 @@ fi
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+
+DEFAULT_USER="gene"
+ZSH_THEME="gene"
 
 # fd - cd to selected directory
 fd() {
@@ -80,7 +90,7 @@ CASE_SENSITIVE="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/dotfiles/shell/zsh
+ZSH_CUSTOM=$HOME/dotfiles/zsh/zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -137,3 +147,4 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
