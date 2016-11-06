@@ -2,6 +2,8 @@ alias reload!='source ~/.zshrc'
 
 alias vi="nvim"
 alias vim="nvim"
+alias vg="vagrant"
+alias vgsh="vagrant ssh"
 
 # Filesystem aliases
 alias cd..='cd ..'
