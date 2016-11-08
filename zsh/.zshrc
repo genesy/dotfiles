@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/gene/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
+source ${HOME}/dotfiles/zsh/aliases.zsh
 
 
 # Directories to be prepended to $PATH
