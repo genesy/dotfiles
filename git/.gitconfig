@@ -29,3 +29,5 @@
 	dp = diff --word-diff --unified=10
 [commit]
 	verbose = true
+[push]
+	default = simple
