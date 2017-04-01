@@ -3,19 +3,29 @@
   email = gnsyftw@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+	autocrlf = input
+	pager = less -RFX
 [diff]
   tool = vimdiff
+	algorithm = histogram
 [difftool]
   prompt = false
 [alias]
-	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n$Creset"
 	stat = status -sb
 	last = log -1 --stat
 	unstage = reset HEAD --
 	cached = diff --cached
 	d = difftool
-  c = commit -m
+  c = commit
   a = add
   ps = push
   pl = pull
   s = status -sb
+  cp = cherry-pick
+  co = checkout
+  b = branch
+	lg = log --pretty='%Cgreen%h%Creset | %d %s %C(green)(%cr) %C(Yellow)[%an]' --graph --all
+	dp = diff --word-diff --unified=10
+[commit]
+	verbose = true

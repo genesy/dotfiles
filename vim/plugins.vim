@@ -1,77 +1,76 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'L9'
-Plug 'tpope/vim-fugitive'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'scrooloose/nerdtree'
 
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+" ==============================
+" TABLE OF CONTENTS
+" ==============================
+" 1. FORMATTING
+" 2. FILE NAVIGATION
+" 3. GIT
+" 4. CSS
+" 5. JAVASCRIPT
+" 6. COLORSCHEME
+" 
+" ==============================
 
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 
-"CtrlP
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'gcmt/taboo.vim'                      "good to have
+" 0. ???
 
-
-" Plug 'tomtom/tcomment_vim'                 "must have
-Plug 'Raimondi/delimitMate'                 "must have
-" delimitMate - closing of quotes, parenthesis, brackets
+Plug 'rking/ag.vim'
+Plug 'takac/vim-hardtime'
+Plug 'easymotion/vim-easymotion'
 
 
-" auto close brackets and quotes
-" Plug 'tpope/vim-repeat'
+" =========================
+" 1.FORMATTING
+" =========================
 
-" Plug 'xolox/vim-misc' " required by vim session
-" Plug 'xolox/vim-session'                   "must have
+" [delimitMate] Automatic Closing of quotes, parenthesis, brackets, etc.
+Plug 'Raimondi/delimitMate'
+
+" [vim-surround] Easy way to change surrounding tags to another tag from " to ' for example.
 Plug 'tpope/vim-surround'
 
-" SYNTAX
+Plug 'tpope/vim-commentary'
+
+
+" =========================
+" 2. FILE NAVIGATION
+" =========================
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" =========================
+" 3. GIT
+" =========================
+Plug 'tpope/vim-fugitive'
+
+" =========================
+" 4. CSS
+" =========================
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'mattn/emmet-vim'
+
+" =========================
+" 5. JAVASCRIPT
+" =========================
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'burnettk/vim-angular'
-Plug 'leafgarland/typescript-vim'
 Plug 'isruslan/vim-es6'
-
 Plug 'shutnik/jshint2.vim'
 
-" Plug 'vim-scripts/YankRing.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
-" Plug 'mattn/emmet-vim'
-" Plug 'mattn/webapi-vim'
 
-" Plug 'rking/ag.vim'
-" Plug 'othree/html5.vim'
-" Plug 'scrooloose/syntastic'                "must have
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'nathanaelkane/vim-indent-guides'
-
-" Plug 'bling/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'marijnh/tern_for_vim'
-
-" Plug 'easymotion/vim-easymotion'
-
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'terryma/vim-expand-region'
-" Plug 'mhinz/vim-startify'
-" 
-"
-
-"----- "
-" Track the engine.
-" Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-" Plug 'honza/vim-snippets'
-"-----"
-
+" =========================
+" 6. COLORSCHEME
+" =========================
+Plug 'kristijanhusak/vim-hybrid-material'
 
 call plug#end()
 

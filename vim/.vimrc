@@ -10,8 +10,8 @@ filetype off                  " required
 " === GENERAL CONFIG =============
 
 set number                      "Show current line number
-set backspace=indent,eol,start  "Allow backspace in insert mode
 set relativenumber              "Show relative line numbers
+set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
@@ -41,6 +41,9 @@ set hidden
 syntax on
 
 let mapleader = "\<Space>"
+
+set suffixesadd+=.js
+set path+=$PWD/node_modules
 
 " === VUNDLE INITIALIZATION  ======================
 " This loads all the plugins specified in ~/.vim/vundles.vim
@@ -84,26 +87,27 @@ if has('nvim')
   set ttimeoutlen=0
 endif
 
+" disables cursor blinking
+set t_vb=
 
 " allows copying to OSX clipboard
 set clipboard=unnamed
 
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_modules/,*/platforms/
 
 " only have emmet on certain files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss EmmetInstall
+
+" TODO: find out why this doesn't work. 
 " let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/dotfiles/emmet/emmet_snippets.json')), "\n"))
 
 " autocmd FileType html,css,scss echo 'yep'
 " autocmd FileType html,css,scss let g:user_emmet_expandabbr_key = '<tab>' 
 
-let g:UltiSnipsExpandTrigger = "<tab>"
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_modules/,*/platforms/
 
-set t_vb=
-
-" === CtrlP settings ===========
+" "=== CtrlP settings ===========
 let g:ctrlp_match_window = 'bottom,ord:her:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
@@ -115,6 +119,7 @@ let g:ctrlp_use_caching = 0
 
 " indent code when entering
 let delimitMate_expand_cr=1
+
 " fix for bug when enter doesnt indent
 imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
 
@@ -139,12 +144,16 @@ let g:airline#extensions#tabline#enabled = 1
 
 " [CtrlK + B] opens sidebar
 noremap <C-k>b :NERDTreeToggle<CR>
+nnoremap <Leader>1 :NERDTree $PWD<CR>
+
 nnoremap <Leader>w :w<CR>
 
 " nnoremap <Leader>e :CtrlPBuffer<CR>
+nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
 
 noremap <Leader>/ :nohlsearch<CR>
+nnoremap ; :
 
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
@@ -160,9 +169,16 @@ let g:airline_powerline_fonts = 1
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
 " quits nerd tree when opening a file
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
+
 " prevent ctrlp still opened when opening file
 let g:ctrlp_dont_split = 'nerdtree'
 let g:user_emmet_expandabbr_key = '<tab>'
 
+let g:hardtime_default_on = 1
+let g:hardtime_allow_different_key = 1
 
+
+map ? <Plug>(easymotion-sn)
+
+cmap w!! w !sudo tee % > /dev/null

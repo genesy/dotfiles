@@ -1,5 +1,6 @@
 alias reload!='source ~/.zshrc'
 
+alias cl="clear"
 alias vi="nvim"
 alias vim="nvim"
 alias vg="vagrant"
@@ -52,4 +53,5 @@ alias da="django-admin"
 
 alias ss="source ~/.zshrc"
 
-
+alias if0="sudo ifconfig en0"
+alias wpw="webpack --progress --colors --watch"

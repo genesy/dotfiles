@@ -11,6 +11,7 @@ prefix=${HOME}/.npm-packages
 NPM_PACKAGES="$HOME/.npm-packages"
 declare -a dirs_to_prepend
 dirs_to_prepend=(
+  "$HOME/bin"
   "$HOME/dotfiles/bin"
   "$HOME/Library/Android/sdk/tools"
   "$HOME/Library/Android/sdk/platform-tools"
