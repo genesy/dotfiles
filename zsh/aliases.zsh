@@ -6,6 +6,8 @@ alias vim="nvim"
 alias vg="vagrant"
 alias vgsh="vagrant ssh"
 
+alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
+
 # Filesystem aliases
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -13,6 +15,7 @@ alias ...='cd ../..'
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias sd="cd ~/stelladot"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

@@ -18,9 +18,11 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set tags=./.ctags
 
 set foldenable                  "enables folding
 set foldlevelstart=10           " open most folds by default
+set foldmethod=syntax
 " set cursorline                  "highlight current line
 
 filetype indent on              "load filetype specific indent files
@@ -48,7 +50,6 @@ set path+=$PWD/node_modules
 " === VUNDLE INITIALIZATION  ======================
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
-
 if filereadable(expand("~/dotfiles/vim/plugins.vim"))
   source ~/dotfiles/vim/plugins.vim
 endif
@@ -73,7 +74,7 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 set list          " display whitespace
-
+set shortmess+=A
 
 syntax enable
 set background=dark
@@ -97,7 +98,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 
 " only have emmet on certain files
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
+autocmd FileType html,css,scss,less EmmetInstall
+autocmd FileType html,css,scss,less imap <TAB> <plug>(emmet-expand-abbr)
+autocmd BufEnter * stopinsert
 
 " TODO: find out why this doesn't work. 
 " let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/dotfiles/emmet/emmet_snippets.json')), "\n"))
@@ -141,16 +144,16 @@ let g:airline_right_sep=''
 let g:airline_section_z=''
 let g:airline#extensions#tabline#enabled = 1
 
-
 " [CtrlK + B] opens sidebar
 noremap <C-k>b :NERDTreeToggle<CR>
-nnoremap <Leader>1 :NERDTree $PWD<CR>
+nnoremap <Leader>1 :NERDTreeToggle<CR>
 
 nnoremap <Leader>w :w<CR>
 
 " nnoremap <Leader>e :CtrlPBuffer<CR>
 nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
+nnoremap <Leader>f :Ag<CR>
 
 noremap <Leader>/ :nohlsearch<CR>
 nnoremap ; :
@@ -158,9 +161,8 @@ nnoremap ; :
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
-nmap <Leader><Leader> <Plug>(easymotion-overwin-f2)
-nnoremap <Leader>g <Plug>(easymotion-prefix)
-
+map ? <Plug>(easymotion-overwin-f)
+ 
 let g:ctrlp_working_path_mode = 'ra'
 
 let g:airline_powerline_fonts = 1
@@ -173,12 +175,31 @@ let NERDTreeQuitOnOpen = 0
 
 " prevent ctrlp still opened when opening file
 let g:ctrlp_dont_split = 'nerdtree'
-let g:user_emmet_expandabbr_key = '<tab>'
+" let g:user_emmet_expandabbr_key = '<tab>'
 
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 let g:hardtime_allow_different_key = 1
+let g:diminactive_enable_focus = 1
 
+let g:javascript_conceal_function = "ƒ"
 
-map ? <Plug>(easymotion-sn)
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = '<C-l>'
+let g:ycm_key_list_previous_completion = '<C-k>'
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/UltiSnips"]
+
+let g:fzf_tags_command = 'ct'
+
+set conceallevel=1
+
+" fix for neovim ctrl H tmux split navigation
+nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 
 cmap w!! w !sudo tee % > /dev/null

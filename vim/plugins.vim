@@ -19,8 +19,19 @@ Plug 'L9'
 " 0. ???
 
 Plug 'rking/ag.vim'
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 Plug 'easymotion/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdcommenter'
+Plug 'blueyed/vim-diminactive'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'ervandew/supertab'
+Plug 'terryma/vim-expand-region'
 
 
 " =========================
