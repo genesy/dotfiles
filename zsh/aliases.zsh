@@ -50,6 +50,7 @@ alias p1="p 8.8.8.8"
 alias pg="postgres -D /usr/local/var/postgres"
 
 alias g="git"
+alias gs="g s"
 alias co="git checkout"
 
 alias da="django-admin"

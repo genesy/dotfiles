@@ -18,21 +18,21 @@ Plug 'L9'
 
 " 0. ???
 
-Plug 'rking/ag.vim'
-" Plug 'takac/vim-hardtime'
 Plug 'easymotion/vim-easymotion'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdcommenter'
 Plug 'blueyed/vim-diminactive'
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
 Plug 'terryma/vim-expand-region'
+" Plug 'tpope/vim-abolish'
+Plug 'bkad/CamelCaseMotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'andrewradev/switch.vim'
 
+" TODO: test this out
+" Plug 'dkprice/vim-easygrep'
 
 " =========================
 " 1.FORMATTING
@@ -50,6 +50,7 @@ Plug 'tpope/vim-commentary'
 " =========================
 " 2. FILE NAVIGATION
 " =========================
+Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -64,7 +65,9 @@ Plug 'tpope/vim-fugitive'
 " 4. CSS
 " =========================
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'groenewege/vim-less'
 Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
 
 " =========================
 " 5. JAVASCRIPT
@@ -82,6 +85,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 " 6. COLORSCHEME
 " =========================
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 

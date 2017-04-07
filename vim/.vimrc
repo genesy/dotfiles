@@ -99,7 +99,7 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 " only have emmet on certain files
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,scss,less EmmetInstall
-autocmd FileType html,css,scss,less imap <TAB> <plug>(emmet-expand-abbr)
+" autocmd FileType html,css,scss,less imap <TAB> <plug>(emmet-expand-abbr)
 autocmd BufEnter * stopinsert
 
 " TODO: find out why this doesn't work. 
@@ -111,13 +111,13 @@ autocmd BufEnter * stopinsert
 
 
 " "=== CtrlP settings ===========
-let g:ctrlp_match_window = 'bottom,ord:her:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_match_window = 'bottom,ord:her:ttb'
+" let g:ctrlp_switch_buffer = 0
+" let g:ctrlp_working_path_mode = 0
 " ctrp_user_command makes ctrlp_custom_ignore and ctrlp_show_hidden not work.
 " use .agignore instead
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-let g:ctrlp_use_caching = 0
+" let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" let g:ctrlp_use_caching = 0
 
 
 " indent code when entering
@@ -129,12 +129,12 @@ imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-  let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
-    \ }
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" else
+  " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  " let g:ctrlp_prompt_mappings = {
+  "   \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+  "   \ }
 endif
 
 
@@ -155,15 +155,37 @@ nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>f :Ag<CR>
 
-noremap <Leader>/ :nohlsearch<CR>
+noremap <Leader>r :so ~/.vimrc<CR>
+noremap <Leader>R :e ~/.vimrc<CR>
 nnoremap ; :
 
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
-map ? <Plug>(easymotion-overwin-f)
- 
-let g:ctrlp_working_path_mode = 'ra'
+nmap ? :nohl<CR><Plug>(easymotion-sn)
+nmap / :nohl<CR><Plug>(easymotion-sn)
+nmap N <Plug>(easymotion-prev)
+nmap n <Plug>(easymotion-next)
+nmap <Tab> <Plug>(easymotion-next)
+nmap <S-Tab> <Plug>(easymotion-prev)
+
+map <Leader>j <Plug>GitGutterNextHunk
+map <Leader>k <Plug>GitGutterPrevHunk
+map <Leader><BS> :nohl<CR>
+
+nmap <silent> w <Plug>CamelCaseMotion_w
+nmap <silent> b <Plug>CamelCaseMotion_b
+nmap <silent> e <Plug>CamelCaseMotion_e
+nmap <silent> ge <Plug>CamelCaseMotion_ge
+
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+" let g:ctrlp_working_path_mode = 'ra'
 
 let g:airline_powerline_fonts = 1
 
@@ -174,11 +196,9 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 let NERDTreeQuitOnOpen = 0
 
 " prevent ctrlp still opened when opening file
-let g:ctrlp_dont_split = 'nerdtree'
+" let g:ctrlp_dont_split = 'nerdtree'
 " let g:user_emmet_expandabbr_key = '<tab>'
 
-let g:hardtime_default_on = 0
-let g:hardtime_allow_different_key = 1
 let g:diminactive_enable_focus = 1
 
 let g:javascript_conceal_function = "ƒ"
@@ -197,7 +217,19 @@ let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/UltiSnips"]
 
 let g:fzf_tags_command = 'ct'
 
+map <Leader>s :Switch<CR>
+
+let g:switch_definitions = 
+  \ [
+  \   {
+  \      'function\((.*)\)': '(\1) =>',
+  \      '\((.*)\)\s?=>': 'function(\1)'
+  \   },
+  \   ['let', 'const', 'var']
+  \ ]
+
 set conceallevel=1
+set completeopt-=preview
 
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
