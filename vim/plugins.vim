@@ -31,8 +31,11 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/switch.vim'
 
-" TODO: test this out
-" Plug 'dkprice/vim-easygrep'
+Plug 'dkprice/vim-easygrep'
+Plug 'leafgarland/typescript-vim'
+
+Plug 'yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
 
 " =========================
 " 1.FORMATTING

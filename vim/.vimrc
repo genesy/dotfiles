@@ -73,7 +73,13 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
+
+" set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,spaces:␣
+
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:•
 set list          " display whitespace
+
+
 set shortmess+=A
 
 syntax enable
@@ -227,6 +233,10 @@ let g:switch_definitions =
   \   },
   \   ['let', 'const', 'var']
   \ ]
+
+let g:indentLine_enabled = 1
+" let g:indentLine_setColors = 0
+" let g:indentLine_color_term = 239
 
 set conceallevel=1
 set completeopt-=preview
