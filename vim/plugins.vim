@@ -36,6 +36,8 @@ Plug 'leafgarland/typescript-vim'
 
 Plug 'yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'moll/vim-node'
+Plug 'elzr/vim-json'
 
 " =========================
 " 1.FORMATTING

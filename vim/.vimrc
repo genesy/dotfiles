@@ -234,12 +234,13 @@ let g:switch_definitions =
   \   ['let', 'const', 'var']
   \ ]
 
-let g:indentLine_enabled = 1
-" let g:indentLine_setColors = 0
-" let g:indentLine_color_term = 239
-
-set conceallevel=1
+"
 set completeopt-=preview
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+let g:indentLine_setConceal = 1
+let g:vim_json_syntax_conceal = 0
 
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
