@@ -1,0 +1,18 @@
+# working with html from stelladot templates
+snippet % "" b
+<% $1 %>
+endsnippet
+
+snippet %if "" b
+<% if ($1) %>
+	$2
+<% } %>
+endsnippet
+
+snippet %else "" b
+<% } else { %>
+endsnippet
+
+snippet %=
+<%= $1 $>
+endsnippet

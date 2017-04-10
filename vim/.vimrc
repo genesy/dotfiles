@@ -159,7 +159,7 @@ nnoremap <Leader>w :w<CR>
 " nnoremap <Leader>e :CtrlPBuffer<CR>
 nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
-nnoremap <Leader>f :Ag<CR>
+nnoremap <Leader>f :Ag 
 
 noremap <Leader>r :so ~/.vimrc<CR>
 noremap <Leader>R :e ~/.vimrc<CR>
@@ -219,7 +219,12 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-let g:UltiSnipsSnippetDirectories=["~/dotfiles/vim/UltiSnips"]
+let g:UltiSnipsEditSplit="vertical"
+
+" https://github.com/SirVer/ultisnips/issues/711
+set runtimepath+=~/dotfiles/snippets
+let g:UltiSnipsSnippetsDir = "~/dotfiles/snippets/UltiSnips"
+let g:UltiSnipsSnippetDirectories = ['~/dotfiles/snippets', 'UltiSnips']
 
 let g:fzf_tags_command = 'ct'
 
