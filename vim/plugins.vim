@@ -12,7 +12,6 @@ Plug 'L9'
 " 4. CSS
 " 5. JAVASCRIPT
 " 6. COLORSCHEME
-" 
 " ==============================
 
 
@@ -26,7 +25,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
 Plug 'terryma/vim-expand-region'
-" Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 Plug 'bkad/CamelCaseMotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/switch.vim'
@@ -36,10 +35,12 @@ Plug 'leafgarland/typescript-vim'
 
 Plug 'yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'moll/vim-node'
 Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
+Plug 'YankRing.vim'
 
+Plug 'terryma/vim-multiple-cursors'
+
+" Plug 'jceb/vim-orgmode'
 " =========================
 " 1.FORMATTING
 " =========================
@@ -58,6 +59,11 @@ Plug 'tpope/vim-commentary'
 " =========================
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -81,6 +87,12 @@ Plug 'ap/vim-css-color'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
+
+Plug 'moll/vim-node'
+Plug 'epilande/vim-es2015-snippets'
+Plug 'epilande/vim-react-snippets'
+
+Plug 'mxw/vim-jsx'
 Plug 'isruslan/vim-es6'
 Plug 'shutnik/jshint2.vim'
 
