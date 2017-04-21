@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'L9'
 
 
+
 " ==============================
 " TABLE OF CONTENTS
 " ==============================
@@ -18,19 +19,33 @@ Plug 'L9'
 " 0. ???
 
 Plug 'easymotion/vim-easymotion'
+  let g:EasyMotion_smartcase = 1
+
 Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'blueyed/vim-diminactive'
+  let g:diminactive_enable_focus = 1
+
 Plug 'sirver/ultisnips'
+  let g:UltiSnipsEditSplit="vertical"
+  let g:UltiSnipsExpandTrigger = "<C-f>"
+  let g:UltiSnipsJumpForwardTrigger = "<C-f>"
+  let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
+
 Plug 'honza/vim-snippets'
 
 Plug 'ervandew/supertab'
+  " make YCM compatible with UltiSnips (using supertab)
+  let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-J>']
+  let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-K>']
+  let g:ycm_key_invoke_completion = '<C-L>' "'<Leader><Leader>'
+
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
 Plug 'bkad/CamelCaseMotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/switch.vim'
 
-Plug 'dkprice/vim-easygrep'
 Plug 'leafgarland/typescript-vim'
 
 Plug 'yggdroot/indentLine'
@@ -47,6 +62,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 " [delimitMate] Automatic Closing of quotes, parenthesis, brackets, etc.
 Plug 'Raimondi/delimitMate'
+  " indent code when entering
+  let delimitMate_expand_cr=1
 
 " [vim-surround] Easy way to change surrounding tags to another tag from " to ' for example.
 Plug 'tpope/vim-surround'
@@ -58,15 +75,19 @@ Plug 'tpope/vim-commentary'
 " 2. FILE NAVIGATION
 " =========================
 Plug 'rking/ag.vim'
+  let g:AgSmartCase = 1
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+  endif
 Plug 'scrooloose/nerdtree'
+  " autocmd StdinReadPre * let s:std_in=1
+  " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+  let g:fzf_tags_command = 'ct'
 
 " =========================
 " 3. GIT
@@ -79,6 +100,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'groenewege/vim-less'
 Plug 'mattn/emmet-vim'
+  let g:user_emmet_expandabbr_key='<C-e>'
+  " imap <expr> <C-,> emmet#expandAbbrIntelligent("\<tab>")
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css,less,scss EmmetInstall
 Plug 'ap/vim-css-color'
 
 " =========================
@@ -102,6 +127,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 " =========================
 " 6. COLORSCHEME
 " =========================
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline'

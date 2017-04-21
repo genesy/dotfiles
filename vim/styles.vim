@@ -1,6 +1,7 @@
 syntax enable
 set background=dark
 colorscheme hybrid_reverse
+" colorscheme afterglow
 
 let g:enable_bold_font = 1
 

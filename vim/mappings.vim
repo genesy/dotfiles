@@ -8,14 +8,14 @@ nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
-nnoremap <silent> <expr> <Leader>p (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<CR>"
+nnoremap <Leader>s :sp<CR>
+nnoremap <Leader>v :vs<CR>
 
-nnoremap <Leader>f :Ag!<CR>
+nnoremap <Leader>f :Ag! 
 
 noremap <Leader>r :so ~/.vimrc<CR>
 noremap <Leader>R :e ~/.vimrc<CR>
 
-noremap <C-k>b :NERDTreeToggle<CR>
 nnoremap <Leader>1 :NERDTreeToggle<CR>
 
 nmap ? :nohl<CR><Plug>(easymotion-s)
@@ -40,3 +40,10 @@ vmap V <Plug>(expand_region_shrink)
 
 " fix for bug when enter doesnt indent
 imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
