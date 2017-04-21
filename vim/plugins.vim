@@ -15,6 +15,15 @@ Plug 'L9'
 " 6. COLORSCHEME
 " ==============================
 
+" -1. ???
+"
+Plug 'kana/vim-textobj-user'
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-indent'
+Plug 'Julian/vim-textobj-brace'
+Plug 'kana/vim-textobj-function'
+Plug 'thinca/vim-textobj-function-javascript'
+Plug 'sgur/vim-textobj-parameter'
 
 " 0. ???
 
