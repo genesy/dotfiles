@@ -6,6 +6,15 @@ alias vi="nvim"
 alias vim="nvim"
 alias vg="vagrant"
 alias vgsh="vagrant ssh"
+alias vgup="vagrant up"
+alias gpush="git push"
+alias gps="git push"
+alias gpl="git pull"
+alias gpul="git pull"
+alias gpull="git pull"
+alias y="yarn"
+alias yi="yarn install"
+alias yl="yarn link"
 
 alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
@@ -60,3 +69,19 @@ alias ss="source ~/.zshrc"
 
 alias if0="sudo ifconfig en0"
 alias wpw="webpack --progress --colors --watch"
+
+function tag() {
+  echo git tag -fa $1 -m $1
+}
+
+# FOR WORK
+alias gtag='tag;'
+alias removetag='git push origin :refs/tags/$1'
+alias gpt= 'git push && git push --tags'
+
+function dev() {
+  CARD=$1 yarn run dev:start
+}
+
+alias sd='dev $1';
+

@@ -39,6 +39,11 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 
+omap <silent> ih <Plug>GitGutterTextObjectInnerPending
+omap <silent> ah <Plug>GitGutterTextObjectOuterPending
+xmap <silent> ih <Plug>GitGutterTextObjectInnerVisual
+xmap <silent> ah <Plug>GitGutterTextObjectOuterVisual
+
 " map <Leader>s :Switch<CR>
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)

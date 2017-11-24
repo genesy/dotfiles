@@ -27,6 +27,9 @@ Plug 'sgur/vim-textobj-parameter'
 
 " 0. ???
 
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+
 Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
 
