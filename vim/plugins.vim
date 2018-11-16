@@ -24,6 +24,7 @@ Plug 'Julian/vim-textobj-brace'
 Plug 'kana/vim-textobj-function'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'sgur/vim-textobj-parameter'
+Plug 'tomlion/vim-solidity'
 
 " 0. ???
 

@@ -6,3 +6,10 @@ platforms
 assets
 cache
 .ctags
+.vscode
+jsconfig.json
+yarn-error.log
+
+yarn.lock
+.gitignore
+npm-debug.log

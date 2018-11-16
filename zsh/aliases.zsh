@@ -83,5 +83,9 @@ function dev() {
   CARD=$1 yarn run dev:start
 }
 
+function sdev() {
+  BRAND=stelladot CARD=$1 yarn run dev:start
+}
+
 alias sd='dev $1';
 
