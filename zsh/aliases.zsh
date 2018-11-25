@@ -1,9 +1,8 @@
-alias reload!='source ~/.zshrc'
+alias reload='source ~/.zshrc'
 
+alias vi="nvim"
 alias ls="ls -a"
 alias cl="clear"
-alias vi="nvim"
-alias vim="nvim"
 alias vg="vagrant"
 alias vgsh="vagrant ssh"
 alias vgup="vagrant up"
@@ -12,9 +11,16 @@ alias gps="git push"
 alias gpl="git pull"
 alias gpul="git pull"
 alias gpull="git pull"
+alias glh="git log -1 --pretty-format:%h" 
 alias y="yarn"
 alias yi="yarn install"
 alias yl="yarn link"
+alias yul="yarn unlink"
+alias g="git"
+alias gs="g s"
+alias co="git checkout"
+alias yr="yarn run"
+alias nr="npm run"
 
 alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
@@ -46,9 +52,6 @@ alias rmrf="rm -rf"
 # Empty the Trash on all mounted volumes and the main HDD
 # alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
-
-alias is="ionic serve"
-alias ira="ionic run android && say \"done\" -v good"
 alias reseed="rake db:drop db:create db:migrate db:seed && say \"starting server\" && RAILS_ENV=development foreman start"
 alias rserve="RAILS_ENV=development foreman start"
 alias redisstart='sudo launchctl start io.redis.redis-server'
@@ -59,9 +62,6 @@ alias p0="ping -i 0.2 `netstat -nr | grep -m 1 '^default' | awk '{print $2;}'`"
 alias p1="p 8.8.8.8"
 alias pg="postgres -D /usr/local/var/postgres"
 
-alias g="git"
-alias gs="g s"
-alias co="git checkout"
 
 alias da="django-admin"
 
@@ -89,3 +89,6 @@ function sdev() {
 
 alias sd='dev $1';
 
+# setsid program-name &>/dev/null
+alias code='setsid /mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code" &>/dev/null'
+# alias code='/mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code"'

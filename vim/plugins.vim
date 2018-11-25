@@ -1,7 +1,17 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'L9'
+" Plug 'L9'
 
+" Test on windows WSL
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" (Optional) Multi-entry selection UI.
+Plug 'junegunn/fzf'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 " ==============================
@@ -64,7 +74,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json'
-Plug 'YankRing.vim'
+" Plug 'YankRing.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -134,7 +144,7 @@ Plug 'mxw/vim-jsx'
 Plug 'isruslan/vim-es6'
 Plug 'shutnik/jshint2.vim'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
 
 " =========================

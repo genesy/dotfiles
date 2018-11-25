@@ -2,9 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+
+ZSH_DISABLE_COMPFIX="true"
 export ZSH=${HOME}/.oh-my-zsh
 source ${HOME}/dotfiles/zsh/aliases.zsh
 
+if [ -f ~/.dir_colors ]; then
+  eval `dircolors ~/.dir_colors`
+fi
 
 # Directories to be prepended to $PATH
 prefix=${HOME}/.npm-packages
@@ -35,7 +40,6 @@ unset dirs_to_prepend
 export PATH
 
 
-
 if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
   alias fzf="fzf-tmux"
 fi
@@ -43,8 +47,6 @@ fi
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-
 DEFAULT_USER="gene"
 ZSH_THEME="gene"
 
