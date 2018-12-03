@@ -1,6 +1,7 @@
 alias reload='source ~/.zshrc'
 
 alias vi="nvim"
+alias svi="sudo -E nvim"
 alias ls="ls -a"
 alias cl="clear"
 alias vg="vagrant"
