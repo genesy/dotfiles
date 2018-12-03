@@ -1,0 +1,8 @@
+{
+    "workbench.statusBar.feedback.visible": false,
+    "editor.lineNumbers": "relative",
+    "vim.useSystemClipboard": true,
+    "breadcrumbs.enabled": true,
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "editor.minimap.enabled": false
+}
