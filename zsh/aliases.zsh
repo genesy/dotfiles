@@ -2,7 +2,7 @@ alias reload='source ~/.zshrc'
 
 alias vi="nvim"
 alias svi="sudo -E nvim"
-alias ls="ls -a"
+# alias ls="ls -a"
 alias cl="clear"
 alias vg="vagrant"
 alias vgsh="vagrant ssh"
@@ -66,7 +66,7 @@ alias pg="postgres -D /usr/local/var/postgres"
 
 alias da="django-admin"
 
-alias ss="source ~/.zshrc"
+alias ss="cl && source ~/.zshrc"
 
 alias if0="sudo ifconfig en0"
 alias wpw="webpack --progress --colors --watch"

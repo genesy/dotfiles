@@ -20,11 +20,16 @@ dirs_to_prepend=(
   "$HOME/dotfiles/bin"
   "$HOME/Library/Android/sdk/tools"
   "$HOME/Library/Android/sdk/platform-tools"
-  "$NPM_PACKAGES/bin"
+  "$NPM_PACKAGES/bin",
+  "$HOME/.rbenv/bin:$PATH",
+  "$HOME/.rbenv/shims:$PATH",
+  "$PATH:/mnt/c/Windows/System32",
+  "$PATH:/mnt/c/Program Files/Oracle/VirtualBox",
+  "/usr/local/bin",
+  "/usr/bin",
+  "/usr/sbin",
+  "/sbin"
 )
-
-
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 for dir in ${(k)dirs_to_prepend[@]}
 do
@@ -33,7 +38,6 @@ do
     PATH="${dir}:$PATH"
   fi
 done
-
 
 unset dirs_to_prepend
 
@@ -49,6 +53,7 @@ fi
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 DEFAULT_USER="gene"
 ZSH_THEME="gene"
+# ZSH_THEME="robbyrussell"
 
 # fd - cd to selected directory
 fd() {
@@ -72,8 +77,7 @@ CASE_SENSITIVE="true"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
+# DISABLE_LS_COLORS="false"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -91,10 +95,10 @@ CASE_SENSITIVE="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/dotfiles/zsh/zsh
+ZSH_CUSTOM=$HOME/dotfiles/zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -144,27 +148,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# alias ionic="docker run -ti --rm -p 8100:8100 -p 35729:35729 --privileged -v ~/.gradle:/root/.gradle -v \$PWD:/myApp:rw agileek/ionic-framework ionic"
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-PATH="/Users/gene/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/gene/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/gene/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/gene/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/gene/perl5"; export PERL_MM_OPT;
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-#
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$PATH:/mnt/c/Windows/System32"
-export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
-# export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH=/mnt/c/vagrant-home/
-# export VAGRANT_HOME=/mnt/c/vagrant-home/.vagrant.d/
-export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
-eval "$(rbenv init -)"
