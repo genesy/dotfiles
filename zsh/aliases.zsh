@@ -22,6 +22,7 @@ alias gs="g s"
 alias co="git checkout"
 alias yr="yarn run"
 alias nr="npm run"
+alias to="tmux detach -a"
 
 alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
