@@ -8,6 +8,7 @@ alias vg="vagrant"
 alias vgsh="vagrant ssh"
 alias vgup="vagrant up"
 alias gpush="git push"
+alias gcn="git commit --no-verify"
 alias gps="git push"
 alias gpl="git pull"
 alias gpul="git pull"
@@ -23,6 +24,10 @@ alias co="git checkout"
 alias yr="yarn run"
 alias nr="npm run"
 alias to="tmux detach -a"
+alias td="tmux detach"
+alias tda="tmux detach -a"
+alias ta="tmux attach"
+
 
 alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
