@@ -86,6 +86,8 @@ alias gtag='tag;'
 alias removetag='git push origin :refs/tags/$1'
 alias gpt= 'git push && git push --tags'
 
+alias clip='clip.exe'
+
 function dev() {
   CARD=$1 yarn run dev:start
 }
