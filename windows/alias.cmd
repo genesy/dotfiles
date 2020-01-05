@@ -2,6 +2,7 @@ doskey p=ping $* /t
 doskey p1=ping 192.168.1.1 /t
 doskey p2=ping 192.168.1.2 /t
 doskey p3=ping 192.168.1.3 /t
+doskey px=ping 192.168.1.$* /t
 doskey pg=ping 8.8.8.8 /t
 doskey pc=ping 1.1.1.1 /t
 doskey g=git $*
