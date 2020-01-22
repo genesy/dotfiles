@@ -1,0 +1,25 @@
+doskey p=ping $* /t
+doskey p1=ping 192.168.1.1 /t
+doskey p2=ping 192.168.1.2 /t
+doskey p3=ping 192.168.1.3 /t
+doskey px=ping 192.168.1.$* /t
+doskey pg=ping 8.8.8.8 /t
+doskey pc=ping 1.1.1.1 /t
+doskey g=git $*
+doskey ga=git add $*
+doskey gc=git commit $*
+doskey gs=git status $*
+doskey gpl=git pull $*
+doskey gps=git push $*
+doskey gd=git diff $*
+doskey y=yarn $*
+doskey yi=yarn install
+doskey yl=yarn link
+doskey yul=yarn unlink
+doskey co=git checkout $*
+doskey ..=cd ..
+doskey ...=cd ../..
+doskey ls=dir
+doskey rmrf=rd /s /q $*
+doskey touch=copy NUL $*
+cls
