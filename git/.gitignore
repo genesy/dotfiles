@@ -9,6 +9,7 @@ cache
 .vscode
 jsconfig.json
 yarn-error.log
+.vs
 
 yarn.lock
 .gitignore
