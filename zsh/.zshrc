@@ -21,8 +21,6 @@ dirs_to_prepend=(
   "$HOME/Library/Android/sdk/tools"
   "$HOME/Library/Android/sdk/platform-tools"
   "$NPM_PACKAGES/bin"
-  "$HOME/.rbenv/bin"
-  "$HOME/.rbenv/shims"
   "/mnt/c/Windows/System32"
   "/mnt/c/Program Files/Oracle/VirtualBox"
   "/usr/local/bin"
@@ -147,7 +145,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
