@@ -27,8 +27,7 @@ alias to="tmux detach -a"
 alias td="tmux detach"
 alias tda="tmux detach -a"
 alias ta="tmux attach"
-alias chrome="\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --user-data-dir=~/XChrome"
-
+alias chrome="\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --user-data-dir=~/XChrome &"
 
 alias ct="ctags -R --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
