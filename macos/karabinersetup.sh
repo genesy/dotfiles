@@ -1,0 +1,1 @@
+ln ~/dotfiles/macos/karabinerprofile.json ~/.config/karabiner/assets/gene.json
