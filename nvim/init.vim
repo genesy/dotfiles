@@ -4,7 +4,10 @@ filetype off                  " required
 " === GENERAL CONFIG =============
 
 
-:call GuiClipboard()
+if has('unix')
+  :call GuiClipboard()
+endif
+
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 

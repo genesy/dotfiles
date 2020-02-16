@@ -1,12 +1,6 @@
-choco install googlechrome firefox 7zip.install vlc autohotkey vscode procexp windirstat spotify vnc-connect teracopy firacode -y
+choco install googlechrome firefox 7zip.install vlc autohotkey vscode procexp windirstat spotify vnc-connect teracopy firacode slack nodejs listary internet-download-manager discord -y
 choco install internet-download-manager -y
-choco install git.install -y
-choco install nodejs -y
-choco install listary -y
 choco install steam -y
-choco install epicgameslauncher -y
-choco install battle.net -y
 choco install obs -y
-choco install slack
 choco install discord
 choco install displayfusion

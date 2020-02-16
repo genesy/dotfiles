@@ -16,9 +16,15 @@ y=yarn $* $T
 yi=yarn install $T
 yl=yarn link $T
 yul=yarn unlink $T
+yr=yarn run $* $T
 co=git checkout $* $T
 ..=cd .. $T
 ...=cd ../.. $T
 ls=dir $T
 rmrf=rd /s /q $* $T
 touch=copy NUL $* $T
+chrome="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="%USERPROFILE%\XChrome" $T
+h=DOSKEY /HISTORY $T
+vi=nvim $T
+vim=nvim $T
+open=explorer $* $T
