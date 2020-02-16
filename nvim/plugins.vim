@@ -18,7 +18,37 @@ if !exists('g:vscode')
   endif
 
   " (Optional) Multi-entry selection UI.
+  function! CreateCenteredFloatingWindow()
+    let width = min([&columns - 4, max([80, &columns - 20])])
+    let height = min([&lines - 4, max([20, &lines - 10])])
+    let top = ((&lines - height) / 2) - 1
+    let left = (&columns - width) / 2
+    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
+
+    let top = "╭" . repeat("─", width - 2) . "╮"
+    let mid = "│" . repeat(" ", width - 2) . "│"
+    let bot = "╰" . repeat("─", width - 2) . "╯"
+    let lines = [top] + repeat([mid], height - 2) + [bot]
+    let s:buf = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
+    call nvim_open_win(s:buf, v:true, opts)
+    set winhl=Normal:Floating
+    let opts.row += 1
+    let opts.height -= 2
+    let opts.col += 2
+    let opts.width -= 4
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    au BufWipeout <buffer> exe 'bw '.s:buf
+  endfunction
+  let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
   Plug 'junegunn/fzf'
+
+  " use rg by default
+  if executable('rg')
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+    set grepprg=rg\ --vimgrep
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  endif
 
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
@@ -51,17 +81,18 @@ Plug 'sgur/vim-textobj-parameter'
 
 if !exists('g:vscode')
   Plug 'scrooloose/syntastic'
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'honza/vim-snippets'
   let g:diminactive_enable_focus = 1
 
   Plug 'blueyed/vim-diminactive'
-  Plug 'sirver/ultisnips'
-    let g:UltiSnipsEditSplit="vertical"
-    let g:UltiSnipsExpandTrigger = "<C-f>"
-    let g:UltiSnipsJumpForwardTrigger = "<C-f>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
+  " Plug 'sirver/ultisnips'
+  "   let g:UltiSnipsEditSplit="vertical"
+  "   let g:UltiSnipsExpandTrigger = "<C-f>"
+  "   let g:UltiSnipsJumpForwardTrigger = "<C-f>"
+  "   let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 
   Plug 'ervandew/supertab'
     " make YCM compatible with UltiSnips (using supertab)

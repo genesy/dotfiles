@@ -13,7 +13,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-
+"
 let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
