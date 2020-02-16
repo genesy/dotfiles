@@ -9,6 +9,7 @@ filetype off                  " required
 :autocmd InsertLeave * set nocul
 
 " disables cursor blinking
+if !exists('g:vscode')
 set t_vb=
 
 set number                      "Show current line number
@@ -42,6 +43,8 @@ set hidden
 
 syntax on                       "turn on syntax highlighting
 
+endif
+
 set suffixesadd+=.js            "make gf go to es6 import file path"
 set path+=$PWD/node_modules     "include node_modules in path"
 
@@ -63,6 +66,7 @@ elseif has('win32')
   source $USERPROFILE\dotfiles\nvim\styles.vim
 endif
 
+if exists('g:vscode')
 set autoindent
 set smartindent
 set smarttab
@@ -76,6 +80,7 @@ set list          " display whitespace
 
 set shortmess+=A
 
+endif
 "NeoVim handles ESC keys as alt+key, set this to solve the problem
 if has('nvim')
   set ttimeout
