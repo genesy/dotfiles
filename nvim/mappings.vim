@@ -11,7 +11,7 @@ nnoremap <Leader>p :FZF<CR>
 nnoremap <Leader>s :sp<CR>
 nnoremap <Leader>v :vs<CR>
 
-nnoremap <Leader>f :Ag! 
+nnoremap <Leader>f :Ag!
 
 noremap <Leader>r :so ~/.vimrc<CR>
 noremap <Leader>R :e ~/.vimrc<CR>
@@ -32,8 +32,8 @@ map <Leader>c :nohl<CR>
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
-omap <silent> iw <Plug>CamelCaseMotion_iw
-xmap <silent> iw <Plug>CamelCaseMotion_iw
+" omap <silent> iw <Plug>CamelCaseMotion_iw
+" xmap <silent> iw <Plug>CamelCaseMotion_iw
 omap <silent> ib <Plug>CamelCaseMotion_ib
 xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
