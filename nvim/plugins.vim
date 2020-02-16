@@ -3,10 +3,17 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'L9'
 
 " Test on windows WSL
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+if has('unix')
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+elseif has('win32')
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+      \ }
+endif
 
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'

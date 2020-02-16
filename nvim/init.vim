@@ -49,16 +49,22 @@ syntax on                       "turn on syntax highlighting
 set suffixesadd+=.js            "make gf go to es6 import file path"
 set path+=$PWD/node_modules     "include node_modules in path"
 
-if filereadable(expand("~/dotfiles/nvim/plugins.vim"))
-  source ~/dotfiles/nvim/plugins.vim
-endif
+if has('unix')
+  if filereadable(expand("~/dotfiles/nvim/plugins.vim"))
+    source ~/dotfiles/nvim/plugins.vim
+  endif
 
-if filereadable(expand("~/dotfiles/nvim/mappings.vim"))
-  source ~/dotfiles/nvim/mappings.vim
-endif
+  if filereadable(expand("~/dotfiles/nvim/mappings.vim"))
+    source ~/dotfiles/nvim/mappings.vim
+  endif
 
-if filereadable(expand("~/dotfiles/nvim/styles.vim"))
-  source ~/dotfiles/nvim/styles.vim
+  if filereadable(expand("~/dotfiles/nvim/styles.vim"))
+    source ~/dotfiles/nvim/styles.vim
+  endif
+elseif has('win32')
+  source $USERPROFILE\dotfiles\nvim\plugins.vim
+  source $USERPROFILE\dotfiles\nvim\mappings.vim
+  source $USERPROFILE\dotfiles\nvim\styles.vim
 endif
 
 set autoindent
