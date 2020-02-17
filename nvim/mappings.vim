@@ -2,19 +2,24 @@ let mapleader = "\<Space>"
 nnoremap ; :
 noremap ;; ;
 
+imap jk <Esc>
+
+nnoremap <silent> <C-\> :vsp<cr>
+nnoremap  :sp<cr>
+
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>e :Buffers<CR>
+" nnoremap <Leader>e :Buffers<CR>
 nnoremap <Leader>p :FZF<CR>
-nnoremap <Leader>s :sp<CR>
-nnoremap <Leader>v :vs<CR>
+" nnoremap <Leader>s :sp<CR>
+" nnoremap <Leader>v :vs<CR>
 
 nnoremap <Leader>f :Ag!
 
-noremap <Leader>r :so ~/.vimrc<CR>
-noremap <Leader>R :e ~/.vimrc<CR>
+noremap <Leader>r :so $MYVIMRC<CR>
+noremap <Leader>R :e ~/dotfiles<CR>
 
 nnoremap <Leader>1 :NERDTreeToggle<CR>
 
@@ -64,3 +69,10 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+
+if exists('g:vscode')
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+endif

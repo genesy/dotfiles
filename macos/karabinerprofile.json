@@ -37,6 +37,28 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "b",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "b",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "c",
             "modifiers": {
               "mandatory": "left_control",
@@ -56,7 +78,6 @@
             }
           ]
         },
-
         {
           "type": "basic",
           "from": {
@@ -78,6 +99,148 @@
               "bundle_identifiers": [
                 "^com\\.googlecode\\.iterm2$",
                 "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": "left_control"
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": ["left_control", "left_shift"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "f",
+              "modifiers": ["left_gui", "left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "h",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "j",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "k",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "l",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$",
+                "^com\\.googlecode\\.iterm2$"
               ]
             }
           ]
@@ -110,28 +273,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "b",
-            "modifiers": {
-              "mandatory": "left_control",
-              "optional": "any"
-            }
-          },
-          "to": [
-            {
-              "key_code": "b",
-              "modifiers": ["left_control"]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "f",
             "modifiers": {
               "mandatory": "left_control",
@@ -148,6 +289,28 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": ["^com\\.microsoft\\.VSCode$"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "w",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.googlecode\\.iterm2$"]
             }
           ]
         }
@@ -572,6 +735,21 @@
               "modifiers": ["left_gui"]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "backslash",
+            "modifiers": {
+              "mandatory": "left_control"
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "backslash",
+              "modifiers": ["left_gui"]
+            }
+          ]
         }
       ]
     },
@@ -724,25 +902,6 @@
     {
       "description": "right ctrl shortcuts",
       "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_control",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "modifiers": ["any"]
-            }
-          ],
-          "to_if_alone": {
-            "key_code": "d",
-            "modifiers": ["left_gui", "left_alt"]
-          }
-        },
         {
           "type": "basic",
           "from": {
