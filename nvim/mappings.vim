@@ -6,7 +6,9 @@ iabbrev gene genesy
 
 imap jk <Esc>
 
+" CTRL \
 nnoremap <silent> <C-\> :vsp<cr>
+" CTRL _
 nnoremap  :sp<cr>
 
 " fix for neovim ctrl H tmux split navigation
@@ -15,6 +17,9 @@ nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 " nnoremap <Leader>s :sp<CR>
 " nnoremap <Leader>v :vs<CR>
 "
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
+
 
 if exists('g:vscode')
   nnoremap <Leader>f :call VSCodeNotify("workbench.action.findInFiles")<CR>;
@@ -42,10 +47,10 @@ noremap <Leader>R :e ~/dotfiles<CR>
 nnoremap <Leader>1 :NERDTreeToggle<CR>
 
 if !has('g:vscode')
-  nmap ? :nohl<CR><Plug>(easymotion-s)
-  nmap / :nohl<CR><Plug>(easymotion-sn)
-  nmap N <Plug>(easymotion-prev)
-  nmap n <Plug>(easymotion-next)
+  " nmap ? :nohl<CR><Plug>(easymotion-s)
+  " nmap / :nohl<CR><Plug>(easymotion-sn)
+  " nmap N <Plug>(easymotion-prev)
+  " nmap n <Plug>(easymotion-next)
 
   nmap <Leader>j <Plug>(GitGutterNextHunk)
   nmap <Leader>k <Plug>(GitGutterPrevHunk)
