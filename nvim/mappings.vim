@@ -10,28 +10,49 @@ nnoremap  :sp<cr>
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 
-nnoremap <Leader>w :w<CR>
-" nnoremap <Leader>e :Buffers<CR>
-nnoremap <Leader>p :FZF<CR>
 " nnoremap <Leader>s :sp<CR>
 " nnoremap <Leader>v :vs<CR>
+"
 
-nnoremap <Leader>f :Ag!
+if exists('g:vscode')
+  nnoremap <Leader>f :call VSCodeNotify("workbench.action.findInFiles")<CR>;
+  nnoremap <Leader>p :call VSCodeNotify("workbench.action.quickOpen")<CR>;
+  nnoremap <Leader>P :call VSCodeNotify("workbench.action.quickOpen", "> ")<CR>;
+  nnoremap <Leader>w :call VSCodeNotify("workbench.action.files.save")<CR>;
+  nnoremap <Leader>q :call VSCodeNotify("workbench.action.closeWindow")<CR>;
+  nnoremap <Leader>Q :call VSCodeNotify("workbench.action.closeWindow")<CR>;
+  nnoremap <Leader>e :call VSCodeNotify("workbench.action.quickOpen", "edt ")<CR>;
+  nnoremap <Leader>r :call VSCodeNotify("workbench.action.reloadWindow")<CR>;
+else
+  nnoremap <Leader>f :Ag<Space>
+  nnoremap <Leader>p :FZF<CR>
+  nnoremap <Leader>w :w<CR>
+  nnoremap <Leader>q :q<CR>
+  nnoremap <Leader>Q :q!<CR>
+  nnoremap <Leader>e :Buffers<CR>
+  nnoremap <Leader>r :so $MYVIMRC<CR>
+endif
 
-noremap <Leader>r :so $MYVIMRC<CR>
+" nnoremap <Leader>f :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
+
 noremap <Leader>R :e ~/dotfiles<CR>
 
 nnoremap <Leader>1 :NERDTreeToggle<CR>
 
-nmap ? :nohl<CR><Plug>(easymotion-s)
-nmap / :nohl<CR><Plug>(easymotion-sn)
-nmap N <Plug>(easymotion-prev)
-nmap n <Plug>(easymotion-next)
+if has('g:vscode')
+  nmap ? :nohl<CR><Plug>(easymotion-s)
+  nmap / :nohl<CR><Plug>(easymotion-sn)
+  nmap N <Plug>(easymotion-prev)
+  nmap n <Plug>(easymotion-next)
 
-map <Leader>j <Plug>GitGutterNextHunk
-map <Leader>k <Plug>GitGutterPrevHunk
+  nmap <Leader>j <Plug>(GitGutterNextHunk)
+  nmap <Leader>k <Plug>(GitGutterPrevHunk)
+else
+  nmap <Leader>j :call VSCodeNotify("workbench.action.editor.nextChange")<CR>
+  nmap <Leader>k :call VSCodeNotify("workbench.action.editor.previousChange")<CR>
+endif
 
-map <Leader><Leader> :FZF<CR>
+
 map <Leader>c :nohl<CR>
 
 map <silent> w <Plug>CamelCaseMotion_w
@@ -54,7 +75,9 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
 " fix for bug when enter doesnt indent
-imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+if !exists('g:vscode')
+  imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+endif
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>

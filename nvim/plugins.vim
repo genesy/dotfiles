@@ -4,18 +4,19 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Test on windows WSL
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if !exists('g:vscode')
-  if has('unix')
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-  elseif has('win32')
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-        \ }
-  endif
+  " if has('unix')
+  "   Plug 'autozimu/LanguageClient-neovim', {
+  "       \ 'branch': 'next',
+  "       \ 'do': 'bash install.sh',
+  "       \ }
+  " elseif has('win32')
+  "   Plug 'autozimu/LanguageClient-neovim', {
+  "       \ 'branch': 'next',
+  "       \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+  "       \ }
+  " endif
 
   " (Optional) Multi-entry selection UI.
   function! CreateCenteredFloatingWindow()
@@ -41,6 +42,7 @@ if !exists('g:vscode')
     au BufWipeout <buffer> exe 'bw '.s:buf
   endfunction
   let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+  let g:skim_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
   Plug 'junegunn/fzf'
 
   " use rg by default
@@ -113,7 +115,7 @@ endif
 
   let g:EasyMotion_smartcase = 1
 
-Plug 'easymotion/vim-easymotion'
+Plug 'asvetliakov/vim-easymotion'
 
 Plug 'terryma/vim-expand-region'
 " Plug 'tpope/vim-abolish'
@@ -208,6 +210,7 @@ endif
 " =========================
 
 if !exists('g:vscode')
+  Plug 'kaicataldo/material.vim'
   Plug 'danilo-augusto/vim-afterglow'
   Plug 'kristijanhusak/vim-hybrid-material'
   Plug 'bling/vim-airline'
