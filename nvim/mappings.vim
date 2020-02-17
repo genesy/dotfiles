@@ -2,6 +2,8 @@ let mapleader = "\<Space>"
 nnoremap ; :
 noremap ;; ;
 
+iabbrev gene genesy
+
 imap jk <Esc>
 
 nnoremap <silent> <C-\> :vsp<cr>
@@ -39,7 +41,7 @@ noremap <Leader>R :e ~/dotfiles<CR>
 
 nnoremap <Leader>1 :NERDTreeToggle<CR>
 
-if has('g:vscode')
+if !has('g:vscode')
   nmap ? :nohl<CR><Plug>(easymotion-s)
   nmap / :nohl<CR><Plug>(easymotion-sn)
   nmap N <Plug>(easymotion-prev)

@@ -13,8 +13,8 @@ endif
 
 " disables cursor blinking
 if !exists('g:vscode')
-set t_vb=
 
+set t_vb=                       "Disable beeping"
 set number                      "Show current line number
 set relativenumber              "Show relative line numbers
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -23,7 +23,6 @@ set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-set tags=./.ctags
 
 set foldenable                  "enables folding
 set foldlevelstart=10           " open most folds by default
@@ -52,23 +51,17 @@ set suffixesadd+=.js            "make gf go to es6 import file path"
 set path+=$PWD/node_modules     "include node_modules in path"
 
 if has('unix')
-  if filereadable(expand("~/dotfiles/nvim/plugins.vim"))
-    source ~/dotfiles/nvim/plugins.vim
-  endif
-
-  if filereadable(expand("~/dotfiles/nvim/mappings.vim"))
-    source ~/dotfiles/nvim/mappings.vim
-  endif
-
-  if filereadable(expand("~/dotfiles/nvim/styles.vim"))
-    source ~/dotfiles/nvim/styles.vim
-  endif
+  source ~/dotfiles/nvim/plugins.vim
+  source ~/dotfiles/nvim/mappings.vim
+  source ~/dotfiles/nvim/styles.vim
 elseif has('win32')
   source $USERPROFILE\dotfiles\nvim\plugins.vim
   source $USERPROFILE\dotfiles\nvim\mappings.vim
   source $USERPROFILE\dotfiles\nvim\styles.vim
 endif
 
+set ignorecase
+set smartcase
 if exists('g:vscode')
 set autoindent
 set smartindent
