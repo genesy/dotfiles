@@ -48,16 +48,17 @@ syntax on                       "turn on syntax highlighting
 endif
 
 set suffixesadd+=.js            "make gf go to es6 import file path"
-set path+=$PWD/node_modules     "include node_modules in path"
 
 if has('unix')
   source ~/dotfiles/nvim/plugins.vim
   source ~/dotfiles/nvim/mappings.vim
   source ~/dotfiles/nvim/styles.vim
+  set path+=$PWD/node_modules     "include node_modules in path"
 elseif has('win32')
   source $USERPROFILE\dotfiles\nvim\plugins.vim
   source $USERPROFILE\dotfiles\nvim\mappings.vim
   source $USERPROFILE\dotfiles\nvim\styles.vim
+  execute 'set path+=' . getcwd() . '\**\*'
 endif
 
 set ignorecase

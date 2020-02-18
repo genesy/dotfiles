@@ -12,3 +12,6 @@ ln ~/dotfiles/nvim/styles.vim ~/.config/nvim/styles.vim
 
 # install plugins
 nvim +PlugInstall +qall
+
+
+mklink %LOCALAPPDATA%\nvim\init.vim %USERPROFILE%\dotfiles\nvim\init.vim

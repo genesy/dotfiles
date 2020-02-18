@@ -4,6 +4,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Test on windows WSL
 
+
+let g:hardtime_default_on = 1
+Plug 'takac/vim-hardtime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if !exists('g:vscode')
   " if has('unix')
