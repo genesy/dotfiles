@@ -68,12 +68,12 @@ endif
 " 6. COLORSCHEME
 " ==============================
 
-" -1. ???
+" -1. TEXT OBJECTS
 "
 Plug 'kana/vim-textobj-user'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-indent'
-Plug 'Julian/vim-textobj-brace'
+Plug 'glts/vim-textobj-comment' " ic or ac
+Plug 'kana/vim-textobj-indent' " ii or ai
+Plug 'Julian/vim-textobj-brace' " ij or aj
 Plug 'kana/vim-textobj-function'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'sgur/vim-textobj-parameter'
@@ -86,9 +86,10 @@ if !exists('g:vscode')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'honza/vim-snippets'
+  Plug 'elzr/vim-json'
   let g:diminactive_enable_focus = 1
 
+  " Plug 'honza/vim-snippets'
   Plug 'blueyed/vim-diminactive'
   " Plug 'sirver/ultisnips'
   "   let g:UltiSnipsEditSplit="vertical"
@@ -96,17 +97,16 @@ if !exists('g:vscode')
   "   let g:UltiSnipsJumpForwardTrigger = "<C-f>"
   "   let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 
-  Plug 'ervandew/supertab'
+  " Plug 'ervandew/supertab'
     " make YCM compatible with UltiSnips (using supertab)
-    let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-J>']
-    let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-K>']
-    let g:ycm_key_invoke_completion = '<C-L>' "'<Leader><Leader>'
+    " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-J>']
+    " let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-K>']
+    " let g:ycm_key_invoke_completion = '<C-L>' "'<Leader><Leader>'
 
   Plug 'airblade/vim-gitgutter'
 
   Plug 'yggdroot/indentLine'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'elzr/vim-json'
   Plug 'terryma/vim-multiple-cursors'
 
 endif
@@ -115,11 +115,14 @@ endif
 
   let g:EasyMotion_smartcase = 1
 
-Plug 'asvetliakov/vim-easymotion'
+" Plug 'asvetliakov/vim-easymotion'
 
 Plug 'terryma/vim-expand-region'
 " Plug 'tpope/vim-abolish'
-Plug 'bkad/CamelCaseMotion'
+" Plug 'bkad/CamelCaseMotion'
+Plug 'genesy/CamelCaseMotion'
+" Plug 'file://' . expand('~/projects/CamelCaseMotion')
+
 " Plug 'andrewradev/switch.vim'
 
 " Plug 'YankRing.vim'
@@ -132,6 +135,7 @@ Plug 'bkad/CamelCaseMotion'
 
 " [delimitMate] Automatic Closing of quotes, parenthesis, brackets, etc.
 if !exists('g:vscode')
+
   Plug 'Raimondi/delimitMate'
   let delimitMate_expand_cr=1
 endif

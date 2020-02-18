@@ -6,10 +6,6 @@ iabbrev gene genesy
 
 imap jk <Esc>
 
-" CTRL \
-nnoremap <silent> <C-\> :vsp<cr>
-" CTRL _
-nnoremap  :sp<cr>
 
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
@@ -30,6 +26,8 @@ if exists('g:vscode')
   nnoremap <Leader>Q :call VSCodeNotify("workbench.action.closeWindow")<CR>;
   nnoremap <Leader>e :call VSCodeNotify("workbench.action.quickOpen", "edt ")<CR>;
   nnoremap <Leader>r :call VSCodeNotify("workbench.action.reloadWindow")<CR>;
+  nnoremap <Leader>\ :call VSCodeNotify("workbench.action.splitEditor")<CR>
+  nnoremap <Leader>- :call VSCodeNotify("workbench.action.splitEditorOrthogonal")<CR>
 else
   nnoremap <Leader>f :Ag<Space>
   nnoremap <Leader>p :FZF<CR>
@@ -38,6 +36,8 @@ else
   nnoremap <Leader>Q :q!<CR>
   nnoremap <Leader>e :Buffers<CR>
   nnoremap <Leader>r :so $MYVIMRC<CR>
+  nnoremap <Leader>\ :vsp<CR>
+  nnoremap <Leader>- :sp<CR>
 endif
 
 " nnoremap <Leader>f :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
@@ -65,8 +65,8 @@ map <Leader>c :nohl<CR>
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
-" omap <silent> iw <Plug>CamelCaseMotion_iw
-" xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
 omap <silent> ib <Plug>CamelCaseMotion_ib
 xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
