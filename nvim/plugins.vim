@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 let g:hardtime_default_on = 1
 Plug 'takac/vim-hardtime'
+Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if !exists('g:vscode')
   " if has('unix')
