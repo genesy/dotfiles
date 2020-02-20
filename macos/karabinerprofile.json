@@ -2,7 +2,7 @@
   "title": "Gene's settings",
   "rules": [
     {
-      "description": "left click 2",
+      "description": "left click 3",
       "manipulators": [
         {
           "type": "basic",
@@ -282,6 +282,31 @@
           "to": [
             {
               "key_code": "r",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$",
+                "^com\\.microsoft\\.VSCode$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "s",
               "modifiers": ["left_control"]
             }
           ],
