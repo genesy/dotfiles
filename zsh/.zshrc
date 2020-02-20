@@ -29,16 +29,17 @@ dirs_to_prepend=(
   "/sbin"
 )
 
-case `uname` in
-  Darwin)
-    # commands for OS X go here
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
+# case `uname` in
+#   Darwin)
+#     # commands for OS X go here
+#   ;;
+#   Linux)
+#     # commands for Linux go here
+#   ;;
+#   FreeBSD)
+#     # commands for FreeBSD go here
+#   ;;
+# esac
 
 for dir in ${(k)dirs_to_prepend[@]}
 do

@@ -12,7 +12,7 @@ endif
 
 " disables cursor blinking
 if !exists('g:vscode')
-
+  set scrolloff=10                "Keeps cursor a few lines
   set t_vb=                       "Disable beeping"
   set number                      "Show current line number
   set relativenumber              "Show relative line numbers
