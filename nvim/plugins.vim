@@ -9,6 +9,10 @@ let g:hardtime_default_on = 1
 Plug 'takac/vim-hardtime'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" vim-sleuth adjusts indentation
+Plug 'tpope/vim-sleuth'
+
+
 if !exists('g:vscode')
 
   " (Optional) Multi-entry selection UI.
@@ -79,6 +83,7 @@ if !exists('g:vscode')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
   Plug 'christoomey/vim-tmux-navigator'
+  let g:vim_json_syntax_conceal = 0
   Plug 'elzr/vim-json'
   let g:diminactive_enable_focus = 1
 
@@ -111,7 +116,7 @@ endif
 " Plug 'asvetliakov/vim-easymotion'
 
 Plug 'terryma/vim-expand-region'
-" Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 " Plug 'bkad/CamelCaseMotion'
 Plug 'genesy/CamelCaseMotion'
 " Plug 'file://' . expand('~/projects/CamelCaseMotion')
@@ -213,6 +218,7 @@ if !exists('g:vscode')
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'chriskempson/base16-vim'
 endif
 
 call plug#end()

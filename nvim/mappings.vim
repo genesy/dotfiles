@@ -2,10 +2,8 @@ let mapleader = "\<Space>"
 nnoremap ; :
 noremap ;; ;
 
-iabbrev gene genesy
 
 imap jk <Esc>
-
 
 " fix for neovim ctrl H tmux split navigation
 nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
@@ -38,6 +36,7 @@ else
   nnoremap <Leader>r :so $MYVIMRC<CR>
   nnoremap <Leader>\ :vsp<CR>
   nnoremap <Leader>- :sp<CR>
+  nnoremap <silent> <Leader>ev :edit $MYVIMRC
 endif
 
 " nnoremap <Leader>f :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>

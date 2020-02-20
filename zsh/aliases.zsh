@@ -26,12 +26,8 @@ alias to="tmux detach -a"
 alias td="tmux detach"
 alias tda="tmux detach -a"
 alias ta="tmux attach"
-# alias chrome="\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --user-data-dir=~/XChrome &"
-
-chrome () {
-  nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=$HOME/XChrome $* 2>&1 &
-}
-
+# for macos
+alias chrome='open -n -a "Google Chrome" --args "--user-data-dir=$HOME/XChrome"'
 alias ct="ctags -r --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
 
 # filesystem aliases
@@ -65,6 +61,9 @@ alias rmrf="rm -rf"
 alias p="ping -i 0.2"
 alias p0="ping -i 0.2 `netstat -nr | grep -m 1 '^default' | awk '{print $2;}'`"
 alias pg="p 8.8.8.8"
+alias p1="p 192.168.1.1"
+alias p2="p 192.168.1.2"
+alias p3="p 192.168.1.3"
 # alias pg="postgres -d /usr/local/var/postgres"
 
 
@@ -79,6 +78,9 @@ alias gpt= 'git push && git push --tags'
 alias clip='clip.exe'
 
 alias sd='dev $1';
+
+alias tmux="tmux -2"
+alias tm="tmux"
 
 # setsid program-name &>/dev/null
 # alias code='setsid /mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code" &>/dev/null'
