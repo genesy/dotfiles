@@ -3,10 +3,11 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'L9'
 
 " Test on windows WSL
-
-
-let g:hardtime_default_on = 1
 Plug 'takac/vim-hardtime'
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 200
+let g:hardtime_ignore_quickfix = 1
+
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " vim-sleuth adjusts indentation
@@ -192,16 +193,24 @@ endif
 " =========================
 
 if !exists('g:vscode')
-  Plug 'jelera/vim-javascript-syntax'
-  Plug 'othree/javascript-libraries-syntax.vim'
-  Plug 'pangloss/vim-javascript'
+  " Plug 'jelera/vim-javascript-syntax'
+  " Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'leafgarland/typescript-vim'
+
   Plug 'moll/vim-node'
   Plug 'epilande/vim-es2015-snippets'
   Plug 'epilande/vim-react-snippets'
 
-  Plug 'mxw/vim-jsx'
+  Plug 'yuezk/vim-js'
+  " Plug 'sheerun/vim-polyglot'
+  " Plug 'pangloss/vim-javascript'
+  Plug 'maxmellon/vim-jsx-pretty'
+  " let g:vim_jsx_pretty_template_tags = []
+  let g:vim_jsx_pretty_colorful_config = 1
+  let g:vim_jsx_pretty_highlight_close_tag = 1
   Plug 'isruslan/vim-es6'
-  Plug 'shutnik/jshint2.vim'
+  " Plug 'shutnik/jshint2.vim'
+  Plug 'chemzqm/vim-jksx-improve'
 endif
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
@@ -212,9 +221,9 @@ endif
 " =========================
 
 if !exists('g:vscode')
-  Plug 'kaicataldo/material.vim'
-  Plug 'danilo-augusto/vim-afterglow'
-  Plug 'kristijanhusak/vim-hybrid-material'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  let g:prettier#autoformat = 1
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'

@@ -18,16 +18,27 @@ declare -a dirs_to_prepend
 dirs_to_prepend=(
   "$HOME/bin"
   "$HOME/dotfiles/bin"
-  "$HOME/Library/Android/sdk/tools"
-  "$HOME/Library/Android/sdk/platform-tools"
+  # "$HOME/Library/Android/sdk/tools"
+  # "$HOME/Library/Android/sdk/platform-tools"
   "$NPM_PACKAGES/bin"
-  "/mnt/c/Windows/System32"
-  "/mnt/c/Program Files/Oracle/VirtualBox"
+  # "/mnt/c/Windows/System32"
+  # "/mnt/c/Program Files/Oracle/VirtualBox"
   "/usr/local/bin"
   "/usr/bin"
   "/usr/sbin"
   "/sbin"
 )
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
 
 for dir in ${(k)dirs_to_prepend[@]}
 do

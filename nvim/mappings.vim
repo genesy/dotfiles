@@ -33,7 +33,7 @@ else
   nnoremap <Leader>q :q<CR>
   nnoremap <Leader>Q :q!<CR>
   nnoremap <Leader>e :Buffers<CR>
-  nnoremap <Leader>r :so $MYVIMRC<CR>
+  nnoremap <silent> <Leader>r :so $MYVIMRC<CR>
   nnoremap <Leader>\ :vsp<CR>
   nnoremap <Leader>- :sp<CR>
   nnoremap <silent> <Leader>ev :edit $MYVIMRC

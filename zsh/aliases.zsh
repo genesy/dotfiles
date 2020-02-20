@@ -22,10 +22,13 @@ alias g="git"
 alias gs="g status"
 alias co="git checkout"
 alias nr="npm run"
+alias tmux="tmux -2"
+alias tm="tmux"
 alias to="tmux detach -a"
 alias td="tmux detach"
 alias tda="tmux detach -a"
 alias ta="tmux attach"
+alias tks="tmux kill-server"
 # for macos
 alias chrome='open -n -a "Google Chrome" --args "--user-data-dir=$HOME/XChrome"'
 alias ct="ctags -r --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
@@ -79,8 +82,6 @@ alias clip='clip.exe'
 
 alias sd='dev $1';
 
-alias tmux="tmux -2"
-alias tm="tmux"
 
 # setsid program-name &>/dev/null
 # alias code='setsid /mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code" &>/dev/null'

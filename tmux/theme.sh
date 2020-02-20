@@ -2,6 +2,7 @@
 
 tm_icon="☀"
 tm_color_active=colour82
+# tm_color_inactive=colour248
 tm_color_inactive=colour248
 tm_color_feature=colour10
 tm_color_music=colour10
@@ -18,6 +19,9 @@ set -g status-right-length 150
 set -g status-interval 5
 
 
+# set -g window-style 'fg=colour237,bg=colour237'
+set -g window-style 'bg=colour237'
+set -g window-active-style 'fg=colour250,bg=black'
 # default statusbar colors
 set-option -g status-bg colour0
 set-option -g status-fg $tm_color_active
