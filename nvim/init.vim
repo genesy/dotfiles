@@ -4,7 +4,7 @@ filetype off                  " required
 " === GENERAL CONFIG =============
 
 
-if has('unix')
+if exists('*GuiClipboard')
   :call GuiClipboard()
 endif
 

@@ -10,17 +10,6 @@ Plug 'takac/vim-hardtime'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if !exists('g:vscode')
-  " if has('unix')
-  "   Plug 'autozimu/LanguageClient-neovim', {
-  "       \ 'branch': 'next',
-  "       \ 'do': 'bash install.sh',
-  "       \ }
-  " elseif has('win32')
-  "   Plug 'autozimu/LanguageClient-neovim', {
-  "       \ 'branch': 'next',
-  "       \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-  "       \ }
-  " endif
 
   " (Optional) Multi-entry selection UI.
   function! CreateCenteredFloatingWindow()

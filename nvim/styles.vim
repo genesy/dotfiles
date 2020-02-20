@@ -1,6 +1,9 @@
 syntax enable
 set background=dark
-colorscheme hybrid_reverse
+set termguicolors
+let g:material_theme_style = 'default'
+colorscheme material
+
 " colorscheme afterglow
 
 let g:enable_bold_font = 1
