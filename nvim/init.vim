@@ -50,7 +50,7 @@ if has('unix')
   source ~/dotfiles/nvim/plugins.vim
   source ~/dotfiles/nvim/mappings.vim
   source ~/dotfiles/nvim/cocsettings.vim
-  " set path+=$PWD/node_modules     "include node_modules in path"
+  set path+=$PWD/node_modules     "include node_modules in path"
 elseif has('win32')
   source $USERPROFILE\dotfiles\nvim\plugins.vim
   source $USERPROFILE\dotfiles\nvim\mappings.vim
@@ -96,7 +96,7 @@ set termguicolors
 colorscheme base16-material-darker
 set guicursor=a:blinkon100
 let g:enable_bold_font = 1
-
+filetype plugin indent on
 " vim-abolish
 :iabbrev functoin function 
 

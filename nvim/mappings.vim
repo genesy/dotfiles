@@ -81,9 +81,9 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
 " fix for bug when enter doesnt indent
-if !exists('g:vscode')
-  imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
-endif
+" if !exists('g:vscode')
+"   imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+" endif
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
@@ -105,3 +105,4 @@ if exists('g:vscode')
   omap gc  <Plug>VSCodeCommentary
   nmap gcc <Plug>VSCodeCommentaryLine
 endif
+

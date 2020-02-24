@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Test on windows WSL
 Plug 'takac/vim-hardtime'
 let g:hardtime_default_on = 1
-let g:hardtime_timeout = 200
+let g:hardtime_timeout = 100
 let g:hardtime_ignore_quickfix = 1
 
 Plug 'wakatime/vim-wakatime'
@@ -133,11 +133,11 @@ Plug 'genesy/CamelCaseMotion'
 " =========================
 
 " [delimitMate] Automatic Closing of quotes, parenthesis, brackets, etc.
-if !exists('g:vscode')
 
   Plug 'Raimondi/delimitMate'
   let delimitMate_expand_cr=1
-endif
+  " let delimitMate_expand_space=1
+  " let delimitMate_jump_expansion = 1
   " indent code when entering
 
 " [vim-surround] Easy way to change surrounding tags to another tag from " to ' for example.
@@ -203,14 +203,14 @@ if !exists('g:vscode')
 
   Plug 'yuezk/vim-js'
   " Plug 'sheerun/vim-polyglot'
-  " Plug 'pangloss/vim-javascript'
+  Plug 'pangloss/vim-javascript'
   Plug 'maxmellon/vim-jsx-pretty'
   " let g:vim_jsx_pretty_template_tags = []
   let g:vim_jsx_pretty_colorful_config = 1
   let g:vim_jsx_pretty_highlight_close_tag = 1
   Plug 'isruslan/vim-es6'
   " Plug 'shutnik/jshint2.vim'
-  Plug 'chemzqm/vim-jksx-improve'
+  Plug 'chemzqm/vim-jsx-improve'
 endif
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
@@ -230,5 +230,7 @@ if !exists('g:vscode')
   Plug 'chriskempson/base16-vim'
 endif
 
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
 call plug#end()
 
