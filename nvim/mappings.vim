@@ -1,6 +1,6 @@
 let mapleader = "\<Space>"
-nnoremap ; :
-noremap ;; ;
+" nnoremap ; :
+" noremap ;; ;
 
 
 imap jk <Esc>
@@ -11,9 +11,15 @@ nnoremap <silent> <BS> <C-h> :TmuxNavigateLeft<cr>
 " nnoremap <Leader>s :sp<CR>
 " nnoremap <Leader>v :vs<CR>
 "
-nnoremap <Leader>o o<Esc>
-nnoremap <Leader>O O<Esc>
+" nnoremap <Leader>o o<Esc>
+" nnoremap <Leader>O O<Esc>
 
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
 if exists('g:vscode')
   nnoremap <Leader>f :call VSCodeNotify("workbench.action.findInFiles")<CR>;
@@ -26,17 +32,78 @@ if exists('g:vscode')
   nnoremap <Leader>r :call VSCodeNotify("workbench.action.reloadWindow")<CR>;
   nnoremap <Leader>\ :call VSCodeNotify("workbench.action.splitEditor")<CR>
   nnoremap <Leader>- :call VSCodeNotify("workbench.action.splitEditorOrthogonal")<CR>
+  nnoremap mm :call VSCodeNotify("bookmarks.toggle")<CR>
+  nnoremap mi :call VSCodeNotify("bookmarks.toggleLabeled")<CR>
+  nnoremap mn :call VSCodeNotify("bookmarks.jumpToNext")<CR>
+  nnoremap mp :call VSCodeNotify("bookmarks.jumpToPresvious")<CR>
+  nnoremap ma :call VSCodeNotify("bookmarks.listFromAllFiles")<CR>
+  nnoremap mc :call VSCodeNotify("bookmarks.clear")<CR>
+  nnoremap mx :call VSCodeNotify("bookmarks.clearFromAllFiles")<CR>
+
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+
+  vnoremap <C-n> mi
+
 else
-  nnoremap <Leader>f :Ag<Space>
-  nnoremap <Leader>p :FZF<CR>
+  " nnoremap <Leader>f :call FZFOpen(':Rg')<CR>
+  nnoremap <Leader>f :FzfPreviewProjectGrep<space>
+  nnoremap <Leader>p :FzfPreviewDirectoryFiles<CR>
   nnoremap <Leader>w :w<CR>
-  nnoremap <Leader>q :q<CR>
-  nnoremap <Leader>Q :q!<CR>
-  nnoremap <Leader>e :Buffers<CR>
+  nnoremap <Leader>qq :q!<CR>
+  nnoremap <Leader>e :FzfPreviewAllBuffers<CR>
   nnoremap <silent> <Leader>r :so $MYVIMRC<CR>
   nnoremap <Leader>\ :vsp<CR>
   nnoremap <Leader>- :sp<CR>
-  nnoremap <silent> <Leader>ev :edit $MYVIMRC
+  " nnoremap <Leader>ga :Git add %:p<CR><CR>
+  " nnoremap <Leader>gs :Gstatus<CR>
+  " nnoremap <Leader>gc :Gcommit -v -q<CR>
+  " nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
+  " nnoremap <Leader>gd :Gdiff<CR>
+  " nnoremap <Leader>ge :Gedit<CR>
+  " nnoremap <Leader>gr :Gread<CR>
+  " nnoremap <Leader>gw :Gwrite<CR><CR>
+  " nnoremap <Leader>gl :silent! Glog<CR>:bot copen<CR>
+  " nnoremap <Leader>gp :Ggrep<Space>
+  " nnoremap <Leader>gm :Gmove<Space>
+  " nnoremap <Leader>gb :Git branch<Space>
+  " nnoremap <Leader>go :Git checkout<Space>
+  " nnoremap <Leader>gps :Dispatch! git push<CR>
+  " nnoremap <Leader>gpl :Dispatch! git pull<CR>
+  "
+  nmap <silent> <Leader>kk <Plug>(coc-diagnostic-prev)
+  nmap <silent> <Leader>jj <Plug>(coc-diagnostic-next)
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  nmap <leader>rn <Plug>(coc-rename)
+
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
+  nmap <leader>qf  <Plug>(coc-fix-current)
+  xmap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap if <Plug>(coc-funcobj-i)
+  omap af <Plug>(coc-funcobj-a)
+
+  nmap <silent> <TAB> <Plug>(coc-range-select)
+  xmap <silent> <TAB> <Plug>(coc-range-select)
+  noremap <silent> <space>ce  :<C-u>CocList extensions<cr>
+  nnoremap <silent> <space>cc  :<C-u>CocList commands<cr>
+  nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
+  nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
+  nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 endif
 
 " nnoremap <Leader>f :call fzf#vim#files('.', {'options': '--prompt ""'})<CR>
@@ -98,11 +165,4 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-
-if exists('g:vscode')
-  xmap gc  <Plug>VSCodeCommentary
-  nmap gc  <Plug>VSCodeCommentary
-  omap gc  <Plug>VSCodeCommentary
-  nmap gcc <Plug>VSCodeCommentaryLine
-endif
 

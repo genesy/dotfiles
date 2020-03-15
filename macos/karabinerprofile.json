@@ -2,30 +2,28 @@
   "title": "Gene's settings",
   "rules": [
     {
-      "description": "left click 3",
+      "description": "all my modifiers",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "8"
+            "key_code": "left_control"
           },
-          "to": [
+          "to_if_alone": [
             {
-              "pointing_button": "button1"
-            },
-            {
-              "key_code": "8"
+              "key_code": "escape"
             }
           ]
         },
         {
           "type": "basic",
           "from": {
-            "pointing_button": "button1"
+            "key_code": "right_gui"
           },
           "to": [
             {
-              "key_code": "a"
+              "key_code": "right_shift",
+              "modifiers": ["right_gui", "right_alt", "right_control"]
             }
           ]
         }
@@ -232,6 +230,31 @@
           "to": [
             {
               "key_code": "l",
+              "modifiers": ["left_control"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode$",
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "mandatory": "left_control",
+              "optional": "any"
+            }
+          },
+          "to": [
+            {
+              "key_code": "n",
               "modifiers": ["left_control"]
             }
           ],

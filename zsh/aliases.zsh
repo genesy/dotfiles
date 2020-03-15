@@ -82,7 +82,7 @@ alias gpt= 'git push && git push --tags'
 alias clip='clip.exe'
 
 alias sd='dev $1';
-
+alias gpss='git push -u origin HEAD'
 
 # setsid program-name &>/dev/null
 # alias code='setsid /mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code" &>/dev/null'

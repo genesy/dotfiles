@@ -7,11 +7,11 @@ if exists('*GuiClipboard')
   :call GuiClipboard()
 endif
 
-:autocmd InsertEnter * set cul
-:autocmd InsertLeave * set nocul
 
 " disables cursor blinking
 if !exists('g:vscode')
+  :autocmd InsertEnter * set cul
+  :autocmd InsertLeave * set nocul
   set scrolloff=10                "Keeps cursor a few lines
   set t_vb=                       "Disable beeping"
   set number                      "Show current line number
@@ -45,6 +45,9 @@ if !exists('g:vscode')
 endif
 
 set suffixesadd+=.js            "make gf go to es6 import file path"
+set suffixesadd+=.ts
+set suffixesadd+=.jsx
+set suffixesadd+=.tsx
 
 if has('unix')
   source ~/dotfiles/nvim/plugins.vim
@@ -61,18 +64,21 @@ endif
 set ignorecase
 set smartcase
 if exists('g:vscode')
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
+  set autoindent
+  set smartindent
+  set smarttab
+  set shiftwidth=2
+  set softtabstop=2
+  set tabstop=2
+  set expandtab
 
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:•"
-set list          " display whitespace
+  set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:•"
+  set list          " display whitespace
 
-set shortmess+=A
+  set shortmess+=A
+
+else
+  set guicursor=a:blinkon100
 
 endif
 "NeoVim handles ESC keys as alt+key, set this to solve the problem
@@ -87,16 +93,33 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/node_
 
 set completeopt-=preview
 
-cmap w!! w !sudo tee % > /dev/null
+"cmap w!! w !sudo tee % > /dev/null
 
-" Stylings
+"" Stylings
 syntax enable
 set background=dark
 set termguicolors
 colorscheme base16-material-darker
-set guicursor=a:blinkon100
+" colorscheme material
+
+" let g:material_theme_style = 'darker'
+" let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
 let g:enable_bold_font = 1
 filetype plugin indent on
-" vim-abolish
-:iabbrev functoin function 
 
+" Check if NERDTree is open or active
+" function! IsNERDTreeOpen()        
+"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+
+" " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" " file, and we're not in vimdiff
+" function! SyncTree()
+"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
+
+" " Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()

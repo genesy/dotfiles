@@ -3,54 +3,26 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'L9'
 
 " Test on windows WSL
-Plug 'takac/vim-hardtime'
-let g:hardtime_default_on = 1
-let g:hardtime_timeout = 100
-let g:hardtime_ignore_quickfix = 1
 
+Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'terryma/vim-multiple-cursors'
 " vim-sleuth adjusts indentation
 Plug 'tpope/vim-sleuth'
 
 
 if !exists('g:vscode')
-
-  " (Optional) Multi-entry selection UI.
-  function! CreateCenteredFloatingWindow()
-    let width = min([&columns - 4, max([80, &columns - 20])])
-    let height = min([&lines - 4, max([20, &lines - 10])])
-    let top = ((&lines - height) / 2) - 1
-    let left = (&columns - width) / 2
-    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-
-    let top = "╭" . repeat("─", width - 2) . "╮"
-    let mid = "│" . repeat(" ", width - 2) . "│"
-    let bot = "╰" . repeat("─", width - 2) . "╯"
-    let lines = [top] + repeat([mid], height - 2) + [bot]
-    let s:buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-    call nvim_open_win(s:buf, v:true, opts)
-    set winhl=Normal:Floating
-    let opts.row += 1
-    let opts.height -= 2
-    let opts.col += 2
-    let opts.width -= 4
-    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    au BufWipeout <buffer> exe 'bw '.s:buf
-  endfunction
-  let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-  let g:skim_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-  Plug 'junegunn/fzf'
-
   " use rg by default
   if executable('rg')
-    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*" --glob "!android/*" --glob "!ios/*"'
     set grepprg=rg\ --vimgrep
-    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+    let g:fzf_preview_filelist_command = 'rg --files --hidden --follow --no-messages -g \!"* *"' " Installed ripgrep
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --glob "!android/*" --glob "!ios/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
   endif
 
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 
@@ -72,8 +44,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'glts/vim-textobj-comment' " ic or ac
 Plug 'kana/vim-textobj-indent' " ii or ai
 Plug 'Julian/vim-textobj-brace' " ij or aj
-Plug 'kana/vim-textobj-function'
-Plug 'thinca/vim-textobj-function-javascript'
+" Plug 'kana/vim-textobj-function'
+" Plug 'thinca/vim-textobj-function-javascript'
 Plug 'sgur/vim-textobj-parameter'
 
 " 0. ???
@@ -96,11 +68,6 @@ if !exists('g:vscode')
   "   let g:UltiSnipsJumpForwardTrigger = "<C-f>"
   "   let g:UltiSnipsJumpBackwardTrigger = "<C-d>"
 
-  " Plug 'ervandew/supertab'
-    " make YCM compatible with UltiSnips (using supertab)
-    " let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<C-J>']
-    " let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>', '<C-K>']
-    " let g:ycm_key_invoke_completion = '<C-L>' "'<Leader><Leader>'
 
   Plug 'airblade/vim-gitgutter'
 
@@ -119,8 +86,9 @@ endif
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
 " Plug 'bkad/CamelCaseMotion'
-Plug 'genesy/CamelCaseMotion'
-" Plug 'file://' . expand('~/projects/CamelCaseMotion')
+" Plug 'genesy/CamelCaseMotion'
+Plug 'file://' . expand('~/projects/CamelCaseMotion')
+" Plug 'file://' . expand('~/projects/whid')
 
 " Plug 'andrewradev/switch.vim'
 
@@ -147,22 +115,22 @@ Plug 'tpope/vim-commentary'
 " =========================
 " 2. FILE NAVIGATION
 " =========================
-if !exists('g:vscode')
-  Plug 'rking/ag.vim'
-  let g:AgSmartCase = 1
-  if executable('ag')
-    set grepprg=ag\ --nogroup\ --nocolor
-  endif
+if !exists('g:vscode') && !has('gui_vimr')
+  " Plug 'rking/ag.vim'
+  " let g:AgSmartCase = 1
+  " if executable('ag')
+  "   set grepprg=ag\ --nogroup\ --nocolor
+  " endif
 
   Plug 'scrooloose/nerdtree'
-  " Plug 'jistr/vim-nerdtree-tabs'
+ " Plug 'jistr/vim-nerdtree-tabs'
+  " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-    let g:fzf_tags_command = 'ct'
+  " Plug 'junegunn/fzf.vim'
+    " let g:fzf_tags_command = 'ct'
 
 endif
   " autocmd StdinReadPre * let s:std_in=1
-  " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 
@@ -197,6 +165,8 @@ if !exists('g:vscode')
   " Plug 'othree/javascript-libraries-syntax.vim'
   Plug 'leafgarland/typescript-vim'
 
+  Plug 'peitalin/vim-jsx-typescript'
+
   Plug 'moll/vim-node'
   Plug 'epilande/vim-es2015-snippets'
   Plug 'epilande/vim-react-snippets'
@@ -228,9 +198,9 @@ if !exists('g:vscode')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'chriskempson/base16-vim'
+  Plug 'tbastos/vim-lua'
+  Plug 'kaicataldo/material.vim'
 endif
 
-Plug 'camspiers/animate.vim'
-Plug 'camspiers/lens.vim'
 call plug#end()
 
