@@ -86,8 +86,8 @@ endif
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-abolish'
 " Plug 'bkad/CamelCaseMotion'
-" Plug 'genesy/CamelCaseMotion'
-Plug 'file://' . expand('~/projects/CamelCaseMotion')
+Plug 'genesy/CamelCaseMotion'
+" Plug 'file://' . expand('~/projects/CamelCaseMotion')
 " Plug 'file://' . expand('~/projects/whid')
 
 " Plug 'andrewradev/switch.vim'

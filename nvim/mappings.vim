@@ -35,7 +35,7 @@ if exists('g:vscode')
   nnoremap mm :call VSCodeNotify("bookmarks.toggle")<CR>
   nnoremap mi :call VSCodeNotify("bookmarks.toggleLabeled")<CR>
   nnoremap mn :call VSCodeNotify("bookmarks.jumpToNext")<CR>
-  nnoremap mp :call VSCodeNotify("bookmarks.jumpToPresvious")<CR>
+  nnoremap mp :call VSCodeNotify("bookmarks.jumpToPrevious")<CR>
   nnoremap ma :call VSCodeNotify("bookmarks.listFromAllFiles")<CR>
   nnoremap mc :call VSCodeNotify("bookmarks.clear")<CR>
   nnoremap mx :call VSCodeNotify("bookmarks.clearFromAllFiles")<CR>
@@ -48,6 +48,15 @@ if exists('g:vscode')
   vnoremap <C-n> mi
 
 else
+
+  omap <silent> ih <Plug>GitGutterTextObjectInnerPending
+  omap <silent> ah <Plug>GitGutterTextObjectOuterPending
+  xmap <silent> ih <Plug>GitGutterTextObjectInnerVisual
+  xmap <silent> ah <Plug>GitGutterTextObjectOuterVisual
+  nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
   " nnoremap <Leader>f :call FZFOpen(':Rg')<CR>
   nnoremap <Leader>f :FzfPreviewProjectGrep<space>
   nnoremap <Leader>p :FzfPreviewDirectoryFiles<CR>
@@ -138,10 +147,6 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-omap <silent> ih <Plug>GitGutterTextObjectInnerPending
-omap <silent> ah <Plug>GitGutterTextObjectOuterPending
-xmap <silent> ih <Plug>GitGutterTextObjectInnerVisual
-xmap <silent> ah <Plug>GitGutterTextObjectOuterVisual
 
 " map <Leader>s :Switch<CR>
 vmap v <Plug>(expand_region_expand)
@@ -153,10 +158,6 @@ vmap V <Plug>(expand_region_shrink)
 " endif
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 "
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
