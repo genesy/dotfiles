@@ -63,7 +63,7 @@ alias rmrf="rm -rf"
 # alias emptytrash="sudo rm -rfv /volumes/*/.trashes; rm -rfv ~/.trash"
 
 alias p="ping -i 0.2"
-alias p0="ping -i 0.2 `netstat -nr | grep -m 1 '^default' | awk '{print $2;}'`"
+# alias p0="ping -i 0.2 `netstat -nr | grep -m 1 '^default' | awk '{print $2;}'`"
 alias pg="p 8.8.8.8"
 alias p1="p 192.168.1.1"
 alias p2="p 192.168.1.2"
