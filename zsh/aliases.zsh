@@ -7,12 +7,9 @@ alias cl="clear"
 alias vg="vagrant"
 alias vgsh="vagrant ssh"
 alias vgup="vagrant up"
-alias gpush="git push"
 alias gcn="git commit --no-verify"
 alias gps="git push"
 alias gpl="git pull"
-alias gpul="git pull"
-alias gpull="git pull"
 alias gignore="git update-index --assume-unchanged"
 alias glh="git log -1 --pretty-format:%h"
 alias y="yarn"
@@ -30,6 +27,8 @@ alias td="tmux detach"
 alias tda="tmux detach -a"
 alias ta="tmux attach"
 alias tks="tmux kill-server"
+alias zj="zellij"
+alias xx="exit"
 # for macos
 alias chrome='open -n -a "Google Chrome" --args "--user-data-dir=$HOME/XChrome"'
 alias ct="ctags -r --exclude=node_modules --exclude=bower_components --exclude=dist -f ./.ctags ."
@@ -83,6 +82,10 @@ alias clip='clip.exe'
 
 alias sd='dev $1';
 alias gpss='git push -u origin HEAD'
+
+function squash() {
+  git reset $(git merge-base ${1:master} $(git branch --show-current))
+}
 
 # setsid program-name &>/dev/null
 # alias code='setsid /mnt/c/Program\ Files/Microsoft\ VS\ Code/Code.exe /c "code" &>/dev/null'
