@@ -19,6 +19,13 @@ alias nr="npm run"
 alias zj="zellij"
 alias xx="exit"
 
+if command -v eza >/dev/null 2>&1; then
+  # alias ls='eza --long --git --smart-group'
+  alias ls='eza --oneline --hyperlink --icons --all'
+else
+  alias ls='ls --color=auto'  # or just 'ls'
+fi
+
 # filesystem aliases
 alias cd..='cd ..'
 alias ..='cd ..'
