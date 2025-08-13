@@ -5,6 +5,16 @@ require('lazy_init')
 require('mappings')
 require('config')
 
+
+-- Example config
+vim.keymap.set('n', '<leader>y', function()
+  require('osc52').copy_operator()
+end, {expr = true})
+vim.keymap.set('n', '<leader>yy', '<leader>y_', {remap = true})
+vim.keymap.set('v', '<leader>y', function()
+  require('osc52').copy_visual()
+end)
+
 if not vim.g.vscode then
   function _G.ReloadConfig()
     for name, _ in pairs(package.loaded) do
