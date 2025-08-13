@@ -1,0 +1,29 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = '''$username$hostname:$directory$git_branch$git_commit$git_state$git_metrics$git_status
+$character'''
+
+[username]
+style_user = 'green '
+style_root = 'black bold'
+format = '[$user]($style)'
+disabled = false
+show_always = true
+# aliases = { "corpuser034g" = "matchai" }
+
+[hostname]
+ssh_only = false
+format = '[@](green)[$hostname](green)'
+trim_at = '.'
+disabled = false
+
+[directory]
+truncation_length= 4
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style)'
+
