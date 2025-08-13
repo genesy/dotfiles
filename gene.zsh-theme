@@ -1,0 +1,1 @@
+zsh/gene.zsh-theme

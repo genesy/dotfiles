@@ -20,6 +20,7 @@ brew install starship
 brew install tmux
 brew install neovim
 brew install eza
+brew install stow
 
 rm -rf ~/.config/nvim
 ln -s ./config/nvim/ ~/.config/nvim
