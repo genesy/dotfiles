@@ -19,6 +19,7 @@ brew install zsh
 brew install starship
 brew install tmux
 brew install neovim
+brew install eza
 
 rm -rf ~/.config/nvim
 ln -s ./config/nvim/ ~/.config/nvim
