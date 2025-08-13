@@ -21,7 +21,7 @@ brew install tmux
 brew install neovim
 
 rm -rf ~/.config/nvim
-ln -s ./config/nvim/
+ln -s ./config/nvim/ ~/.config/nvim
 
 rm ~/.config/starship.toml
 ln ./zsh/starship.toml ~/.config/starship.toml
