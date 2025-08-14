@@ -22,3 +22,11 @@ brew install neovim
 brew install eza
 brew install stow
 
+brew install jesseduffield/lazydocker/lazydocker
+brew install lazydocker
+
+rm -rf ~/.config/nvim
+ln -s ./config/nvim/ ~/.config/nvim
+
+rm ~/.config/starship.toml
+ln ./zsh/starship.toml ~/.config/starship.toml
