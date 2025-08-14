@@ -21,6 +21,8 @@ brew install tmux
 brew install neovim
 brew install eza
 brew install stow
+brew install fzf
+brew install zoxide
 
 brew install jesseduffield/lazydocker/lazydocker
 brew install lazydocker

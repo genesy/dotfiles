@@ -16,6 +16,7 @@ autoload -U compinit && compinit
 
 zinit light zsh-users/zsh-autosuggestions
 
+zinit light Aloxaf/fzf-tab
 
 HISTSIZE=10000
 HISTFILE=~/..zsh_history
@@ -36,10 +37,16 @@ bindkey '^n' history-search-forward
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
 
-# bindkey "\t" autosuggest-accept
-bindkey '\t' end-of-line
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 source ${HOME}/dotfiles/zsh/aliases.zsh
 
+
+eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
