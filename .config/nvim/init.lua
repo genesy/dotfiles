@@ -6,14 +6,17 @@ require('mappings')
 require('config')
 
 
--- Example config
-vim.keymap.set('n', '<leader>y', function()
-  require('osc52').copy_operator()
-end, {expr = true})
-vim.keymap.set('n', '<leader>yy', '<leader>y_', {remap = true})
-vim.keymap.set('v', '<leader>y', function()
-  require('osc52').copy_visual()
-end)
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = function () end,
+    ['*'] = function () end,
+  },
+}
 
 if not vim.g.vscode then
   function _G.ReloadConfig()
