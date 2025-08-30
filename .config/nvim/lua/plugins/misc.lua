@@ -6,10 +6,10 @@ return {
       require('mini.ai').setup()
     end,
   },
-  {
-    'wakatime/vim-wakatime',
-    lazy = false,
-  },
+  -- {
+  --   'wakatime/vim-wakatime',
+  --   lazy = false,
+  -- },
   {
     'folke/which-key.nvim',
     event = 'VeryLazy',
@@ -27,11 +27,6 @@ return {
       scroll_down = '<c-j>', -- binding to scroll down inside the popup
       scroll_up = '<c-k>', -- binding to scroll up inside the popup
     },
-  },
-
-  {
-    'folke/zen-mode.nvim',
-    opts = {},
   },
 
   {
