@@ -23,9 +23,11 @@ alias xx="exit"
 
 if command -v eza >/dev/null 2>&1; then
   # alias ls='eza --long --git --smart-group'
-  alias ls='eza --oneline --hyperlink --icons --all'
+  alias ls='eza --hyperlink --icons --all'
+  alias lst='ls --tree'
 else
   alias ls='ls --color=auto'  # or just 'ls'
+  alias lst='ls'
 fi
 
 # filesystem aliases

@@ -1,3 +1,7 @@
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ON_SSH=true
+ZSH_TMUX_AUTOQUIT=true
+ 
 # -- ZINIT INSTALLATION START
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -9,6 +13,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # zinit load zsh-users/zsh-history-substring-search
 # zinit ice wait atload'_history_substring_search_config'
 
+zinit snippet OMZP::tmux
 zinit light zsh-users/zsh-syntax-highlighting
 
 zinit light zsh-users/zsh-completions
