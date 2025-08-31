@@ -1,4 +1,4 @@
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ON_SSH=true
 ZSH_TMUX_AUTOQUIT=true
  
@@ -13,7 +13,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # zinit load zsh-users/zsh-history-substring-search
 # zinit ice wait atload'_history_substring_search_config'
 
-zinit snippet OMZP::tmux
+# zinit snippet OMZP::tmux
 zinit light zsh-users/zsh-syntax-highlighting
 
 zinit light zsh-users/zsh-completions
@@ -45,13 +45,13 @@ bindkey "^[[B" history-search-forward
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -la --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -la --color=always $realpath'
 
 source ${HOME}/dotfiles/zsh/aliases.zsh
 
 
-eval "$(fzf --zsh)"
+# eval "$(fzf)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 

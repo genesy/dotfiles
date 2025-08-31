@@ -17,4 +17,10 @@ apt-get install zoxide
 curl -sS https://starship.rs/install.sh | sh
 apt-get install fzf
 
+cd ~
+git clone --single-branch https://github.com/gpakosz/.tmux.git
+mv .tmux.conf .tmux.conf.bak
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local . 
+
 zsh
