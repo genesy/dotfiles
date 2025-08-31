@@ -395,9 +395,9 @@ set -g mouse on
 #set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
-# unbind C-b
-# set -g prefix C-Space
-# bind Space send-prefix
+unbind C-b
+set -g prefix C-Space
+bind Space send-prefix
 
 bind-key t new-window -c "#{pane_current_path}"
 
@@ -414,8 +414,8 @@ if-shell 'test -n "$SSH_CONNECTION"' \
 ##### Prefix logic: inner vs outer #####
 # On REMOTE (inner): use C-a and make C-a send-prefix (nice for nesting)
 if-shell '[ "#{@is_remote}" = "1" ]' \
-  'unbind C-b; set -g prefix C-a; bind C-a send-prefix' \
-  'unbind C-a; set -g prefix C-b'
+  'unbind C-Space; set -g prefix C-a; bind C-a send-prefix' \
+  'unbind C-a; set -g prefix C-Space'
 
 # On LOCAL (outer): add a passthrough key so C-b a sends a prefix to inner
 if-shell '[ "#{@is_remote}" = "0" ]' \
