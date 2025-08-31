@@ -6,17 +6,23 @@ require('mappings')
 require('config')
 
 
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['+'] = function () end,
-    ['*'] = function () end,
-  },
-}
+-- vim.g.clipboard = {
+--   name = 'OSC 52',
+--   copy = {
+--     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+--     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+--   },
+--   paste = {
+--     ['+'] = function () end,
+--     ['*'] = function () end,
+--   },
+-- }
+do
+  local ok, osc52 = pcall(function() return vim.ui.clipboard.osc52 end)
+  if ok and osc52 then
+    vim.g.clipboard = osc52 -- use terminal OSC52 clipboard
+  end
+end
 
 if not vim.g.vscode then
   function _G.ReloadConfig()
