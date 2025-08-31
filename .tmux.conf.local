@@ -401,6 +401,10 @@ set -g mouse on
 
 bind-key t new-window -c "#{pane_current_path}"
 
+if-shell 'grep -qi microsoft /proc/version 2>/dev/null' \
+  'set -g @is_wsl 1' \
+  'set -g @is_wsl 0'
+
 ##### Detect context: remote (via SSH) vs local #####
 # Remote if $SSH_CONNECTION is non-empty
 if-shell 'test -n "$SSH_CONNECTION"' \
