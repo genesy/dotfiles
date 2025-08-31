@@ -371,9 +371,18 @@ tmux_conf_theme_clock_style="24"
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=true
+
+# Let apps inside tmux (nvim, etc.) talk to the outer terminal clipboard via OSC52
 set -g set-clipboard on
 set -g allow-passthrough on
-set -ga terminal-overrides ',*:Ms=\E]52;c;%p1%s\007'
+set -as terminal-overrides ',xterm*:Ms=\E]52;c;%p1%s\007'
+
+set -s set-clipboard on
+set -s allow-passthrough on
+set -as terminal-features ',*:clipboard,passthrough'
+set -as terminal-overrides ',xterm*:Ms=\E]52;c;%p1%s\007'
+
+display-message "Loaded ~/.tmux.conf.local"
 
 
 # -- urlscan -------------------------------------------------------------------
