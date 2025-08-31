@@ -371,7 +371,9 @@ tmux_conf_theme_clock_style="24"
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
 tmux_conf_copy_to_os_clipboard=true
+set -g set-clipboard on
 set -g allow-passthrough on
+set -ga terminal-overrides ',*:Ms=\E]52;c;%p1%s\007'
 
 
 # -- urlscan -------------------------------------------------------------------
