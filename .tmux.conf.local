@@ -414,26 +414,37 @@ if-shell 'grep -qi microsoft /proc/version 2>/dev/null' \
   'set -g @is_wsl 0'
 
 
-# --- remove/replace the global send-prefix on Space ---
-# unbind any previous Space binding so it doesn't interfere
+# --- clean up any previous binds that might conflict ---
 unbind -n Space
 unbind Space
+unbind C-a
+unbind C-Space
 
-##### Detect context: remote (via SSH) vs local #####
+##### Detect context #####
+# Remote if $SSH_CONNECTION is non-empty
 if-shell 'test -n "$SSH_CONNECTION"' \
   'set -g @is_remote 1' \
   'set -g @is_remote 0'
 
-##### Prefix logic: inner vs outer #####
-# On REMOTE (inner): use C-a as tmux prefix
-if-shell '[ "#{@is_remote}" = "1" ]' \
-  'unbind C-Space; set -g prefix C-a; bind -T prefix C-a send-prefix' \
-  'unbind C-a; set -g prefix C-Space'
+# Nested if TERM looks like a tmux terminal (outer tmux sets this)
+if-shell -F '#{m:*tmux*,#{TERM}}' \
+  'set -g @is_nested 1' \
+  'set -g @is_nested 0'
 
-# On LOCAL (outer):
-# Make "Ctrl-Space" then "Space" send a C-a into the pane (to hit inner tmux)
+##### Prefix logic #####
+# Case A: Local, outer tmux
 if-shell '[ "#{@is_remote}" = "0" ]' \
-  'bind -T prefix Space send-keys C-a' \
+  'set -g prefix C-Space; bind -T prefix Space send-keys C-a' \
+  ''
+
+# Case B: Remote over SSH AND nested (tmux inside tmux) -> inner uses C-a
+if-shell '[ "#{@is_remote}" = "1" -a "#{@is_nested}" = "1" ]' \
+  'set -g prefix C-a; bind -T prefix C-a send-prefix' \
+  ''
+
+# Case C: Remote over SSH and NOT nested -> inner uses C-Space (your issue)
+if-shell '[ "#{@is_remote}" = "1" -a "#{@is_nested}" = "0" ]' \
+  'set -g prefix C-Space' \
   ''
 
 ##### Quality of life (works in both) #####
