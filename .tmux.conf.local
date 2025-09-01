@@ -406,10 +406,6 @@ set -g mouse on
 #set -g status-keys vi
 #set -g mode-keys vi
 
-# replace C-b by C-a instead of using both prefixes
-unbind C-b
-set -g prefix C-Space
-bind Space send-prefix
 
 bind-key t new-window -c "#{pane_current_path}"
 
@@ -417,21 +413,27 @@ if-shell 'grep -qi microsoft /proc/version 2>/dev/null' \
   'set -g @is_wsl 1' \
   'set -g @is_wsl 0'
 
+
+# --- remove/replace the global send-prefix on Space ---
+# unbind any previous Space binding so it doesn't interfere
+unbind -n Space
+unbind Space
+
 ##### Detect context: remote (via SSH) vs local #####
-# Remote if $SSH_CONNECTION is non-empty
 if-shell 'test -n "$SSH_CONNECTION"' \
   'set -g @is_remote 1' \
   'set -g @is_remote 0'
 
 ##### Prefix logic: inner vs outer #####
-# On REMOTE (inner): use C-a and make C-a send-prefix (nice for nesting)
+# On REMOTE (inner): use C-a as tmux prefix
 if-shell '[ "#{@is_remote}" = "1" ]' \
-  'unbind C-Space; set -g prefix C-a; bind C-a send-prefix' \
+  'unbind C-Space; set -g prefix C-a; bind -T prefix C-a send-prefix' \
   'unbind C-a; set -g prefix C-Space'
 
-# On LOCAL (outer): add a passthrough key so C-b a sends a prefix to inner
+# On LOCAL (outer):
+# Make "Ctrl-Space" then "Space" send a C-a into the pane (to hit inner tmux)
 if-shell '[ "#{@is_remote}" = "0" ]' \
-  'bind a send-prefix' \
+  'bind -T prefix Space send-keys C-a' \
   ''
 
 ##### Quality of life (works in both) #####
