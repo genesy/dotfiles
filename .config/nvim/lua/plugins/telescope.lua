@@ -6,7 +6,24 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim', 'debugloop/telescope-undo.nvim' },
     config = function()
       require('telescope').setup({
+
+        pickers = {
+          live_grep = {
+            additional_args = function()
+              return { '--hidden', '--no-ignore-vcs', '--glob', '!**/.git/*' }
+            end,
+          },
+          
+          find_files = {
+            hidden = true,
+            no_ignore = true,
+            find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs', '--glob', '!**/.git/*' },
+          },
+
+        },
+
         defaults = {
+
           wrap_results = true,
           sorting_strategy = 'descending',
           layout_config = {
@@ -16,6 +33,18 @@ return {
             height = {
               padding = 0.04,
             },
+          },
+          vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',          -- include dotfiles
+            '--no-ignore-vcs',   -- include files ignored by git
+            '--glob', '!**/.git/*' -- but exclude .git
           },
         },
         extensions = {

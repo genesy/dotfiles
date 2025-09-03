@@ -58,12 +58,12 @@ keymap('n', 'k', 'kzzzv')
 keymap('n', '<C-p>', '<C-p>zzzv')
 keymap('n', '<C-n>', '<C-n>zzzv')
 
-keymap('n', '<leader>zm', ':ZenMode<CR>', { desc = 'Toggle Zen Mode' })
+-- keymap('n', '<leader>zm', ':ZenMode<CR>', { desc = 'Toggle Zen Mode' })
 
 keymap('n', '<leader>rr', function()
   dofile(vim.fn.stdpath('config') .. '/init.lua')
   print('Config reloaded!')
-end)
+end, { desc = 'Reload config'})
 
 keymap('n', '<leader>ri', ':Lazy install<CR>', { desc = 'Install Lazy plugins' })
 keymap('n', '<leader>1', ':Neotree toggle<cr>')

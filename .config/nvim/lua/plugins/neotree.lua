@@ -29,6 +29,10 @@ return {
       open_files_do_not_replace_types = { 'terminal', 'trouble', 'qf' },
       filesystem = {
         follow_current_file = { enabled = true },
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_hidden = false
+        }
       },
       window = {
         width = 30,

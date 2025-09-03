@@ -50,6 +50,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -la --color=always $real
 
 source ${HOME}/dotfiles/zsh/aliases.zsh
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 
 # eval "$(fzf)"
 eval "$(starship init zsh)"
