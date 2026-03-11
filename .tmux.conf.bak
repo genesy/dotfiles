@@ -181,6 +181,25 @@ bind p paste-buffer
 # bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
 ##############################
+### Nested Session Handling ##
+##############################
+
+# Press F12 to toggle outer tmux keybindings off (so keys pass through to inner session)
+# Status bar dims to indicate passthrough mode is active
+bind -T root F12 \
+  set prefix None \;\
+  set key-table off \;\
+  set status-style "fg=colour245,bg=colour238" \;\
+  if -F '#{pane_in_mode}' 'send-keys -X cancel' \;\
+  refresh-client -S
+
+bind -T off F12 \
+  set -u prefix \;\
+  set -u key-table \;\
+  set -u status-style \;\
+  refresh-client -S
+
+##############################
 ### Color & Style Settings ###
 ##############################
 
@@ -233,5 +252,4 @@ set -g @plugin 'NHDaly/tmux-scroll-copy-mode'           # Scroll up enables copy
 
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-# run -b '~/.tmux/plugins/tpm/tpm'
-# run-shell ~/.tmux/plugins/tmux-sidebar/sidebar.tmux
+run '~/.tmux/plugins/tpm/tpm'

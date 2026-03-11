@@ -58,3 +58,23 @@ export VISUAL=nvim
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+
+# bun completions
+[ -s "/Users/genesy/.bun/_bun" ] && source "/Users/genesy/.bun/_bun"
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# genesy CLI
+export PATH="$HOME/scripts:$PATH"
+
+# Local env vars (not tracked in git)
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
