@@ -69,6 +69,10 @@ create_symlinks() {
     # Tmux
     link "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
 
+    # Claude
+    link "$DOTFILES/.claude/settings.json"          "$HOME/.claude/settings.json"
+    link "$DOTFILES/.claude/statusline-command.sh"  "$HOME/.claude/statusline-command.sh"
+
     # Neovim
     link "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
 

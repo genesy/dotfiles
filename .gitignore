@@ -1,1 +1,14 @@
-.claude/
+.claude/.credentials.json
+.claude/backups/
+.claude/cache/
+.claude/debug/
+.claude/downloads/
+.claude/file-history/
+.claude/history.jsonl
+.claude/paste-cache/
+.claude/plugins/
+.claude/projects/
+.claude/session-env/
+.claude/shell-snapshots/
+.claude/tasks/
+.claude/telemetry/
