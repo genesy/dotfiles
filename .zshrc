@@ -76,5 +76,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # genesy CLI
 export PATH="$HOME/scripts:$PATH"
 
+# Auto-attach to existing tmux session or create a new one
+if command -v tmux &>/dev/null && [ -z "$TMUX" ]; then
+  tmux attach 2>/dev/null || tmux new-session -s main
+fi
+
 # Local env vars (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
