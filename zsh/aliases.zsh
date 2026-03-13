@@ -1,5 +1,7 @@
 alias reload='source ~/.zshrc'
 
+alias cc="claude"
+alias ccd="claude --dangerously-skip-permissions"
 alias vi="nvim"
 alias cl="clear"
 alias dc="docker compose"
