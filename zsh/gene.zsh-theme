@@ -7,7 +7,13 @@ function my_git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$GIT_STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-PROMPT='%{$fg_bold[blue]%}%2~%{$reset_color%} $(my_git_prompt_info)%{$reset_color%}%B»%b '
+function _ssh_host_prefix() {
+  if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
+    echo "%{$fg_bold[yellow]%}%n@%m%{$reset_color%} "
+  fi
+}
+
+PROMPT='$(_ssh_host_prefix)%{$fg_bold[blue]%}%2~%{$reset_color%} $(my_git_prompt_info)%{$reset_color%}%B»%b '
 # PROMPT='%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%2~%{$reset_color%} $(my_git_prompt_info)%{$reset_color%}%B»%b '
 RPS1="${return_code}"
 
