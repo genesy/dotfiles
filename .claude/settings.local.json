@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(ln -sf /Users/genesy/dotfiles/.config/lf/lfrc ~/.config/lf/lfrc)",
+      "Skill(keybindings-help)"
     ]
   }
 }

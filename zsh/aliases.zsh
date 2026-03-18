@@ -23,6 +23,7 @@ alias yi="yarn install"
 alias co="git checkout"
 alias nr="npm run"
 alias zj="zellij"
+alias q="pueue"
 alias xx="exit"
 
 if command -v eza >/dev/null 2>&1; then

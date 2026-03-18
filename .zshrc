@@ -35,9 +35,11 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-bindkey -e
+bindkey -v
+bindkey -M viins 'jk' vi-cmd-mode
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
+bindkey '^f' autosuggest-accept
 
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
@@ -81,5 +83,36 @@ export PATH="$HOME/scripts:$PATH"
 #   tmux attach 2>/dev/null || tmux new-session -s main
 # fi
 
+# SSH banner
+if [[ -n "$SSH_CONNECTION" ]]; then
+  local _ssh_content="  ⚠  SSH SESSION: $(hostname)  "
+  local _ssh_len=${#_ssh_content}
+  local _ssh_bar=$(printf '═%.0s' {1..$_ssh_len})
+  echo "\033[1;31m╔${_ssh_bar}╗\033[0m"
+  echo "\033[1;31m║${_ssh_content}║\033[0m"
+  echo "\033[1;31m╚${_ssh_bar}╝\033[0m"
+
+  # Background tint — works in Ghostty and most modern terminals
+  if [[ -z "$TMUX" ]]; then
+    printf '\033]11;#1a0000\a'
+  fi
+
+  # Turn tmux red so it's obvious during long-running scripts too
+  if [[ -n "$TMUX" ]]; then
+    tmux set -g status-style "bg=red,fg=white,bold"
+    tmux set -g pane-border-style "fg=red"
+    tmux set -g pane-active-border-style "fg=brightred,bold"
+  fi
+fi
+
 # Local env vars (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

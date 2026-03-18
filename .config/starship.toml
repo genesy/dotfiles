@@ -4,8 +4,14 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-format = '''$username$hostname:$directory$git_branch$git_commit$git_state$git_metrics$git_status
+format = '''$custom$username$hostname:$directory$git_branch$git_commit$git_state$git_metrics$git_status
 $character'''
+
+[custom.ssh]
+command = 'echo "SSH"'
+when = '[ -n "$SSH_CONNECTION" ]'
+style = "bold bright-red"
+format = "[$output ]($style)"
 
 [username]
 style_user = 'green '
@@ -17,7 +23,8 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@](green)[$hostname](green)'
+ssh_symbol = '⚡'
+format = '[@](green)[$ssh_symbol$hostname](green)'
 trim_at = '.'
 disabled = false
 
