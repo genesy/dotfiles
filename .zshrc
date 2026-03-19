@@ -57,6 +57,8 @@ export VISUAL=nvim
 
 
 # eval "$(fzf)"
+function zle-keymap-select() {}
+zle -N zle-keymap-select
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -107,6 +109,9 @@ fi
 
 # Local env vars (not tracked in git)
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

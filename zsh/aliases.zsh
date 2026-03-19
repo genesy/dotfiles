@@ -1,5 +1,6 @@
 alias reload='source ~/.zshrc'
 
+alias pu="pueue"
 alias cc="claude"
 alias ccd="claude --dangerously-skip-permissions"
 alias vi="nvim"
@@ -23,7 +24,6 @@ alias yi="yarn install"
 alias co="git checkout"
 alias nr="npm run"
 alias zj="zellij"
-alias q="pueue"
 alias xx="exit"
 
 if command -v eza >/dev/null 2>&1; then
@@ -50,6 +50,8 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 alias mkdir="mkdir -p"
 alias rmrf="rm -rf"
+
+function q { pueue add -- "$@"; }
 
 alias p="ping -i 0.2"
 # alias p0="ping -i 0.2 `netstat -nr | grep -m 1 '^default' | awk '{print $2;}'`"
